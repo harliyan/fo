@@ -55,61 +55,67 @@
 
     function initialize(lt,lg) {
       var mapDiv = document.getElementById('map-canvas');
-      map = new google.maps.Map(mapDiv, {
+
+       // var icon =
+       //      'https://developers.google.com/maps/documentation/javascript/examples/full/images/info-i_maps.png';
+
+
+       map = new google.maps.Map(mapDiv, {
         center: new google.maps.LatLng(lt, lg),
-        zoom: 13,
-        scrollwheel: true,
-        draggable:true,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        zoom: 13, //zoom
+        scrollwheel: true, //bisa discroll nggak
+        draggable:true, //bisa didrag nggak
+        mapTypeId: google.maps.MapTypeId.ROADMAP  //jenis peta
 
       });
 
-      infoWindow = new google.maps.InfoWindow();
 
-      <?php foreach ($view AS $row) {?>
-       var nama = '\
-       <div class="row">\
-       <div class="col">\
-       <h6><?php echo $row->nama_telecenter ?></h6><br>\
-       <p align="left">This is some text in a paragraph.</p>\
-       <p align="left"><?php echo $row->alamat_telecenter ?></p>\
-       <p align="left"><?php echo $row->nama_pengelola ?>\
-       </div>\
-       <div class="col">\
-       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">\
-       <div class="carousel-inner">\
-       <div class="carousel-item active">\
-       <a href="<?php echo base_url('uploads/'. $row->foto); ?>" data-lightbox="image-1" data-title="Foto Sarpras Kabel FO Kota Pekalongan" ><img class="d-block w-100" src="<?php echo base_url('uploads/'. $row->foto); ?>"></a>\
-       </div>\
-       <div class="carousel-item">\
-        <a href="<?php echo base_url('uploads/'. $row->foto); ?>" data-lightbox="image-1" data-title="Foto Sarpras Kabel FO Kota Pekalongan" ><img class="d-block w-100" src="<?php echo base_url('uploads/'. $row->foto); ?>"></a>\
-       </div>\
-       <div class="carousel-item">\
-       <a href="<?php echo base_url('uploads/'. $row->foto); ?>" data-lightbox="image-1" data-title="Foto Sarpras Kabel FO Kota Pekalongan" ><img class="d-block w-100" src="<?php echo base_url('uploads/'. $row->foto); ?>"></a>\
-       </div>\
-       <div class="carousel-item">\
-        <a href="<?php echo base_url('uploads/'. $row->foto); ?>" data-lightbox="image-1" data-title="Foto Sarpras Kabel FO Kota Pekalongan" ><img class="d-block w-100" src="<?php echo base_url('uploads/'. $row->foto); ?>"></a>\
-       </div>\
-       </div>\
-       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">\
-       <span class="carousel-control-prev-icon" aria-hidden="true"></span>\
-       <span class="sr-only">Previous</span>\
-       </a>\
-       <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">\
-       <span class="carousel-control-next-icon" aria-hidden="true"></span>\
-       <span class="sr-only">Next</span>\
-       </a>\
-       </div>\
-       </div>\
-       </div>';
+        infoWindow = new google.maps.InfoWindow();
 
-       var latview = '<?php echo $row->latitude ?>';
-       var longview = '<?php echo $row->longitude ?>';
-       createMarker(latview, longview, nama);
+        <?php foreach ($view AS $row) {?>
+         var nama = '\
+         <div class="row">\
+         <div class="col">\
+         <h6><?php echo $row->opd ?></h6><br>\
+         <p align="left"><?php echo $row->alamat?></p>\
+         <p align="left"><?php echo $row->kontak_pengelola ?>\
+         <p align="left"><?php echo $row->jenis_perangkat ?>\
+         </div>\
+         <div class="col">\
+         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">\
+         <div class="carousel-inner">\
+         <div class="carousel-item active">\
+         <a href="<?php echo base_url('uploads/'. $row->foto); ?>" data-lightbox="image-1" data-title="Foto Sarpras Kabel FO Kota Pekalongan" ><img class="d-block w-100" src="<?php echo base_url('uploads/'. $row->foto); ?>"></a>\
+         </div>\
+         <div class="carousel-item">\
+         <a href="<?php echo base_url('uploads/'. $row->foto); ?>" data-lightbox="image-1" data-title="Foto Sarpras Kabel FO Kota Pekalongan" ><img class="d-block w-100" src="<?php echo base_url('uploads/'. $row->foto); ?>"></a>\
+         </div>\
+         <div class="carousel-item">\
+         <a href="<?php echo base_url('uploads/'. $row->foto); ?>" data-lightbox="image-1" data-title="Foto Sarpras Kabel FO Kota Pekalongan" ><img class="d-block w-100" src="<?php echo base_url('uploads/'. $row->foto); ?>"></a>\
+         </div>\
+         <div class="carousel-item">\
+         <a href="<?php echo base_url('uploads/'. $row->foto); ?>" data-lightbox="image-1" data-title="Foto Sarpras Kabel FO Kota Pekalongan" ><img class="d-block w-100" src="<?php echo base_url('uploads/'. $row->foto); ?>"></a>\
+         </div>\
+         </div>\
+         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">\
+         <span class="carousel-control-prev-icon" aria-hidden="true"></span>\
+         <span class="sr-only">Previous</span>\
+         </a>\
+         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">\
+         <span class="carousel-control-next-icon" aria-hidden="true"></span>\
+         <span class="sr-only">Next</span>\
+         </a>\
+         </div>\
+         </div>\
+         </div>';
 
-     <?php } ?>
+         var latview = '<?php echo $row->latitude ?>';
+         var longview = '<?php echo $row->longitude ?>';
+         createMarker(latview, longview, nama);
 
-   }
+       <?php } ?>
+
+     }
 
    // <a href="<?php echo base_url('uploads/'. $row->foto); ?>" data-lightbox="image-1" data-title="Foto Sarpras Telecenter" ><img src="<?php echo base_url('uploads/'. $row->foto); ?>" class="img-thumbnail" alt="Responsive image"  width="100px" height="75px"></a>
 
@@ -117,7 +123,8 @@
     var latLng = new google.maps.LatLng(lt,lg);
     var marker = new google.maps.Marker({
       position: latLng,
-      map: map
+      map: map,
+      // icon: icon
     });
 
 
