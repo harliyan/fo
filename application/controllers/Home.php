@@ -33,7 +33,6 @@ class Home extends CI_Controller
         $data['get_printer_tidaklayak'] = $this->Home_model->get_printer_tidaklayak();
         $data['get_listrik_layak']  = $this->Home_model->get_listrik_layak();
         $data['get_listrik_tidaklayak'] = $this->Home_model->get_listrik_tidaklayak();
-
         $data['active_view']    = "home/index";
         $this->load->view('templates/frontend/index', $data);
 

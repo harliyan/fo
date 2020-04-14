@@ -15,7 +15,7 @@
         <footer class="sticky-footer bg-white">
          <div class="container my-auto">
            <div class="copyright text-center my-auto">
-             <span>Copyright &copy; Harliyan Tri M. 2019</span>
+             <span>Copyright &copy; Dinas Kominfo Kota Pekalongan 2020</span>
            </div>
          </div>
        </footer>
