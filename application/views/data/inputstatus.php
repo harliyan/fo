@@ -7,6 +7,7 @@
     option.secondary {background-color: #6C757D; color: white; font-size: 20px}
     option.light {background-color: #F8F9FA; color: black; font-size: 20px}
     option.dark {background-color: #343A40; color: white; font-size: 20px}
+
 </style>
 
 
@@ -45,7 +46,7 @@
 
 <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">Add Status Perangkat</a>
 
-<table class="table table-hover">
+<table class="table table-hover display" id="example1" style="width: 100%">
     <thead>
         <tr>
             <th scope="col">#</th>

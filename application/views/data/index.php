@@ -1,4 +1,3 @@
-<!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -6,27 +5,269 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <?= $this->session->flashdata('message'); ?>
-        </div>
-    </div>
+            <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+            <?php if($this->session->flashdata('success')){ ?>  
+             <div class="alert alert-success">  
+               <a href="#" class="close" data-dismiss="alert">&times;</a>  
+               <strong>Success!</strong> <?php echo $this->session->flashdata('success'); ?>  
+           </div>  
+       <?php } else if($this->session->flashdata('error')){ ?>  
+         <div class="alert alert-danger">  
+           <a href="#" class="close" data-dismiss="alert">&times;</a>  
+           <strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>  
+       </div>  
+   <?php } else if($this->session->flashdata('warning')){ ?>  
+     <div class="alert alert-warning">  
+       <a href="#" class="close" data-dismiss="alert">&times;</a>  
+       <strong>Warning!</strong> <?php echo $this->session->flashdata('warning'); ?>  
+   </div>  
+<?php } else if($this->session->flashdata('info')){ ?>  
+ <div class="alert alert-info">  
+   <a href="#" class="close" data-dismiss="alert">&times;</a>  
+   <strong>Info!</strong> <?php echo $this->session->flashdata('info'); ?>  
+</div>  
+<?php } ?>  
 
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="card-img" alt="...">
+<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">Add Data Inventaris</a>
+
+<table class="table table-hover display" id="example2" style="width:auto">
+    <thead>
+        <tr>
+            <th scope="col" class="text-center">#</th>
+            <th scope="col">Perangkat/OPD</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Cluster</th>
+            <th scope="col">Kondisi</th>
+            <th scope="col">Jenis Konverter</th>
+            <th scope="col">IP Address</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">#</th>
+            <th scope="col" class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $i = 1; ?>
+        <?php foreach ($data as $d) : ?>
+            <tr>
+                <th scope="row" class="text-center"><?= $i; ?></th>
+                <td><?php echo $d['opd'] ?></td>
+                <td><?php echo $d['alamat'] ?></td>
+                <td><?php echo $d['cluster'] ?></td>
+                <td class="text-center">
+                    <?php
+                    $kondisi = $d['kondisi'];
+                    $up = '<span class="badge badge-success">UP</span>';
+                    $down = '<span class="badge badge-danger">DOWN</span>';
+                    if ($kondisi == "up") {
+                        echo "$up";
+                    } else {
+                        echo "$down";
+                    }
+                    ?>
+                </td>
+                <td><?php echo $d['jenis_konverter'] ?></td>
+                <td><?php echo $d['ip'] ?></td>
+                <td><?php echo $d['latitude'] ?></td>
+                <td><?php echo $d['longitude'] ?></td>
+                <td class="text-center"><small><a href="" data-toggle="modal" data-target="#modal_edit<?php echo $d['id'];?>"> Show Details</a></small></td>
+                <td class="text-center">
+                    <a href="<?php echo base_url() ?>data/delete/<?php echo $d['id'] ?>" class="badge badge-warning">edit</a>
+                    <a href="<?php echo base_url() ?>data/hapuscluster/<?php echo $d['id'] ?>" class="badge badge-danger">delete</a>
+                </td>
+            </tr>
+            <?php $i++; ?>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br>
+</div>
+</div>
+</div>
+</div>
+<!-- End of Main Content -->
+
+
+<!-- Modal Add-->
+<div class="modal fade" id="newMenuModal" tabindex="-1" role="dialog" aria-labelledby="newMenuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newMenuModalLabel">Add Cluster</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                   <span aria-hidden="true">&times;</span>                                                                                                     
+               </button>
+           </div>
+           <form action="<?= base_url('data/cluster') ?>" method="post">
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="cluster" name="cluster" aria-describedby="emailHelp" placeholder="Cluster">
+                </div>
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $user['name']; ?></h5>
-                    <p class="card-text"><?= $user['email']; ?></p>
-                    <p class="card-text"><small class="text-muted">Member Since <?= date('d F Y', $user['date_created']); ?></small></p>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<!-- End Modal Add -->
+
+<!-- ============ MODAL EDIT BARANG =============== -->
+<?php foreach ($data as $d) :
+    $id=$d['id'];
+    $opd=$d['opd'];
+    ?>
+    <div class="modal fade" id="modal_edit<?php echo $d['id'];?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="myModalLabel"><?php echo $d['opd'];?></h3>
+                </div>
+                <form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/barang/edit_barang'?>">
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <label class="control-label col-xs-3" >Alamat</label>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3" >: <?php echo $d['alamat'];?></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: -20px">
+                            <div class="col-lg-3">
+                                <label class="control-label col-xs-3" >Cluster</label>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3" >: <?php echo $d['cluster'];?></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: -20px">
+                            <div class="col-lg-3">
+                                <label class="control-label col-xs-3" >Kondisi</label>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3" >:  
+                                        <?php
+                                        $kondisi = $d['kondisi'];
+                                        $up = '<span class="badge badge-success">UP</span>';
+                                        $down = '<span class="badge badge-danger">DOWN</span>';
+                                        if ($kondisi == "up") {
+                                            echo "$up";
+                                        } else {
+                                            echo "$down";
+                                        }
+                                        ?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: -20px">
+                                <div class="col-lg-3">
+                                    <label class="control-label col-xs-3" >Konverter</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3" >: <?php echo $d['jenis_konverter'];?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: -20px">
+                                <div class="col-lg-3">
+                                    <label class="control-label col-xs-3" >IP Address</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3" >: <?php echo $d['ip'];?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: -20px">
+                                <div class="col-lg-3">
+                                    <label class="control-label col-xs-3" >Jointing 1</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3" >: <?php echo $d['jointing1'];?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: -20px">
+                                <div class="col-lg-3">
+                                    <label class="control-label col-xs-3" >Jointing 2</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3" >: <?php echo $d['jointing2'];?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: -20px">
+                                <div class="col-lg-3">
+                                    <label class="control-label col-xs-3" >Jointing 3</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3" >: <?php echo $d['jointing3'];?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: -20px">
+                                <div class="col-lg-3">
+                                    <label class="control-label col-xs-3" >Latitude</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3" >: <?php echo $d['latitude'];?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: -20px">
+                                <div class="col-lg-3">
+                                    <label class="control-label col-xs-3" >Longitude</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3" >: <?php echo $d['longitude'];?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- foto -->
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                  <img class="d-block w-100" src="<?= base_url('uploads') ?>/<?php echo $d['foto1'];?>" alt="First slide">
+                              </div>
+                               <div class="carousel-item">
+                                  <img class="d-block w-100" src="<?= base_url('uploads') ?>/<?php echo $d['foto2'];?>" alt="First slide">
+                              </div>
+                               <div class="carousel-item">
+                                  <img class="d-block w-100" src="<?= base_url('uploads') ?>/<?php echo $d['foto3'];?>" alt="First slide">
+                              </div>
+                              <div class="carousel-item">
+                                  <img class="d-block w-100" src="<?= base_url('uploads') ?>/<?php echo $d['foto4'];?>" alt="First slide">
+                              </div>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <!-- foto -->
                 </div>
             </div>
         </div>
     </div>
-
-</div>
-<!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
+<?php endforeach;?>
+                <!--END MODAL ADD BARANG-->
