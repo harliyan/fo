@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Data_model extends CI_Model
 {
-	public function getSubMenu()
+	public function getSubMenubackup()
 	{
 		$query = "SELECT `user_sub_menu` .*, `user_menu`.`menu`
 		FROM `user_sub_menu` JOIN `user_menu`
@@ -13,14 +13,29 @@ class Data_model extends CI_Model
 		return $this->db->query($query)->result_array();
 	}
 
+	public function getSubMenu() {
+
+		$this->db->select ( '*' ); 
+		$this->db->from ( 'data' );
+		$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
+		$this->db->join ( 'cluster', 'cluster.id = data.id' , 'left' );
+		$query = $this->db->get ();
+		return $query->result ();
+	}
+
 	public function data()
 	{
-		$query = "SELECT `data` .*, `data2`.*
-		FROM `data` JOIN `data2`
-		ON `data`. `id` = `data2`.`id`
-		";
+		$this->db->select ( '*' ); 
+		$this->db->from ( 'data' );
+		$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
+		$this->db->join ( 'cluster', 'cluster.id = data.cluster' , 'left' );
+		$query = $this->db->get ();
+		return $query->result_array ();
+	}
 
-		return $this->db->query($query)->result_array();
+	public function cluster_tampil() {
+		$query = $this->db->get('cluster');
+		return $query->result();
 	}
 
 	public function hapus($id)

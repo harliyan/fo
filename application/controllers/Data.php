@@ -19,6 +19,7 @@
 
         // $data['subMenu'] = $this->db->get('user_sub_menu')->result_array();
         $data['data'] = $this->data->data();
+        $data['data_cluster'] = $this->Data_model->cluster_tampil();
         // $data['menu'] = $this->db->get('user_menu')->result_array();
 
         $this->form_validation->set_rules('opd', 'Opd', 'required');
@@ -114,10 +115,10 @@
         redirect('data/inputstatus'); //redirect
     }
 
-    public function hapuscluster($id)
+    public function hapusdata($id)
     {
         $this->Data_model->hapuscluster($id);
         $this->session->set_flashdata('success', 'Data Cluster Berhasil dihapus');
-        redirect('data/cluster'); //redirect
+        redirect('data'); //redirect
     }
 }

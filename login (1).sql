@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 28, 2020 at 02:50 PM
+-- Generation Time: May 18, 2020 at 02:51 PM
 -- Server version: 5.7.28-0ubuntu0.18.04.4
 -- PHP Version: 7.0.33-14+ubuntu18.04.1+deb.sury.org+1
 
@@ -23,6 +23,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cluster`
+--
+
+CREATE TABLE `cluster` (
+  `id` int(3) NOT NULL,
+  `cluster` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cluster`
+--
+
+INSERT INTO `cluster` (`id`, `cluster`) VALUES
+(2, 'Cluster NOC 2'),
+(3, 'Cluster A'),
+(4, 'Cluster NOC B');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `data`
 --
 
@@ -32,7 +52,7 @@ CREATE TABLE `data` (
   `id_kecamatan` varchar(255) NOT NULL,
   `opd` varchar(255) NOT NULL,
   `alamat` varchar(255) NOT NULL,
-  `cluster` varchar(20) NOT NULL,
+  `cluster` int(3) NOT NULL,
   `kondisi` varchar(4) NOT NULL,
   `jenis_konverter` varchar(6) NOT NULL,
   `jointing1` varchar(100) NOT NULL DEFAULT 'No Jointing',
@@ -47,11 +67,11 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`id`, `waktu`, `id_kecamatan`, `opd`, `alamat`, `cluster`, `kondisi`, `jenis_konverter`, `jointing1`, `jointing2`, `jointing3`, `ip`, `surveyor`) VALUES
-(2, '2020-04-28 10:54:23', '1', 'KOMINFO', 'Jl Labuhan no 149 RT 01 RW 01 Degayu Jl Labuhan no 149 RT 01 RW 01 Degayu', 'FO', 'up', 'single', '1', '0', 'Tidak Layak', '192.168.254.144', 'muslim'),
-(3, '2020-04-28 10:34:16', '2', 'Kecamatan Barat', 'Jl.kimangunsarkoro gg. Pesantren', 'Sekolah', 'down', 'double', '1', '0', 'Tidak Layak', '192.168.254.144', 'muslim'),
-(4, '2020-04-28 10:54:27', '3', 'DPMPTSP', 'Jl Labuhan no 138 RT 04 RW 07 Degayu', 'NOC', 'up', 'single', '1', '1', 'Tidak Layak', '192.168.254.144', 'muslim'),
-(5, '2020-04-28 10:54:29', '4', 'Kecamatan Selatan', 'Jl Joko Tingkir No 235 RT 1 RW 2 Degayu', 'Fingerprint', 'down', 'double', '1', '0', 'Tidak Layak', '192.168.254.144', 'muslim'),
-(6, '2020-04-28 10:54:29', '4', 'Kecamatan Utara', 'Jl Joko Tingkir No 235 RT 1 RW 2 Degayu', 'Fingerprint', 'down', 'double', '1', '0', 'Tidak Layak', '192.168.254.144', 'muslim');
+(2, '2020-05-18 14:23:40', '1', 'Kominfo', 'Jl Labuhan no 149 RT 01 RW 01 Degayu Jl Labuhan no 149 RT 01 RW 01 Degayu Jl Labuhan no 149 RT 01 RW 01 Degayu Jl Labuhan no 149 RT 01 RW 01 Degayu', 2, 'up', 'single', '1', '0', 'Tidak Layak', '192.168.254.166', 'muslim'),
+(3, '2020-05-18 08:34:51', '2', 'Kecamatan Barat', 'Jl.kimangunsarkoro gg. Pesantren', 3, 'down', 'double', '1', '0', 'Tidak Layak', '192.168.254.144', 'muslim'),
+(4, '2020-05-18 08:34:54', '3', 'DPMPTSP', 'Jl Labuhan no 138 RT 04 RW 07 Degayu', 4, 'up', 'single', '1', '1', 'Tidak Layak', '192.168.254.144', 'muslim'),
+(5, '2020-05-18 08:34:56', '4', 'Kecamatan Selatan', 'Jl Joko Tingkir No 235 RT 1 RW 2 Degayu', 2, 'down', 'double', '1', '0', 'Tidak Layak', '192.168.254.144', 'muslim'),
+(6, '2020-05-18 08:34:58', '4', 'Kecamatan Utara', 'Jl Joko Tingkir No 235 RT 1 RW 2 Degayu', 3, 'down', 'double', '1', '0', 'Tidak Layak', '192.168.254.144', 'muslim');
 
 -- --------------------------------------------------------
 
@@ -61,10 +81,10 @@ INSERT INTO `data` (`id`, `waktu`, `id_kecamatan`, `opd`, `alamat`, `cluster`, `
 
 CREATE TABLE `data2` (
   `id` int(50) NOT NULL,
-  `foto` varchar(255) NOT NULL DEFAULT 'no.jpg',
-  `foto_printer` varchar(255) NOT NULL DEFAULT 'no.jpg',
-  `foto_jaringan` varchar(255) NOT NULL DEFAULT 'no.jpg',
-  `foto_sarpras` varchar(255) NOT NULL DEFAULT 'no.jpg',
+  `foto1` varchar(255) NOT NULL DEFAULT 'no.jpg',
+  `foto2` varchar(255) NOT NULL DEFAULT 'no.jpg',
+  `foto3` varchar(255) NOT NULL DEFAULT 'no.jpg',
+  `foto4` varchar(255) NOT NULL DEFAULT 'no.jpg',
   `latitude` float(10,6) NOT NULL,
   `longitude` float(10,6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -73,8 +93,8 @@ CREATE TABLE `data2` (
 -- Dumping data for table `data2`
 --
 
-INSERT INTO `data2` (`id`, `foto`, `foto_printer`, `foto_jaringan`, `foto_sarpras`, `latitude`, `longitude`) VALUES
-(2, '1.jpeg', 'rw1netdegayu2.jpeg', 'no.jpg', 'no.jpg', -6.879667, 109.698730),
+INSERT INTO `data2` (`id`, `foto1`, `foto2`, `foto3`, `foto4`, `latitude`, `longitude`) VALUES
+(2, '1.jpeg', '2.jpg', '3.jpg', '3.jpg', -6.879667, 109.698730),
 (3, '2.jpg', 'pondok1.jpeg', 'pondok2.jpeg', 'no.jpg', -6.881876, 109.703903),
 (4, '3.jpg', 'd7c164cbafd3bd251e543e03d14e947d.jpg', 'no.jpg', 'no.jpg', -6.882350, 109.698097),
 (5, '3.jpg', 'IMG-20190424-WA0011.jpg', 'IMG-20190424-WA0013.jpg', 'no.jpg', -6.879967, 109.698662),
@@ -262,14 +282,21 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
 (8, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
 (9, 1, 'User List', 'admin/userlist', 'fas fa-user-cog', 1),
-(10, 4, 'Data', 'data', 'fas fa-database', 1),
+(10, 4, 'Data Inventaris', 'data', 'fas fa-database', 1),
 (11, 4, 'Input Status Perangkat', 'data/inputstatus', 'fas fa-pencil-alt', 1),
 (12, 6, 'Report All', 'report', 'fas fa-flag-checkered', 1),
-(13, 4, 'Input Data', 'data/inputdata', 'fas fa-pen-square', 1);
+(13, 4, 'Input Data', 'data/inputdata', 'fas fa-pen-square', 1),
+(14, 4, 'Cluster', 'data/cluster', 'fas fa-pencil-alt', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `cluster`
+--
+ALTER TABLE `cluster`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `data`
@@ -336,6 +363,11 @@ ALTER TABLE `user_sub_menu`
 --
 
 --
+-- AUTO_INCREMENT for table `cluster`
+--
+ALTER TABLE `cluster`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
@@ -384,7 +416,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
