@@ -27,11 +27,11 @@
  </div>  
 <?php } ?>  
 
-<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">Add Data Inventaris</a>
+<!-- <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">Add Data Inventaris</a> -->
 
-<a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-success mb-3"><i class="fas fa-redo-alt"></i>Refresh</a>
-<div class="table-wrapper-scroll-y my-custom-scrollbar">
-    <table class="table table-hover table-striped mb-0" id="example2" >
+<a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-danger mb-3"><i class="fas fa-redo-alt"></i>Refresh</a>
+<!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"> -->
+    <table class="table table-hover display" id="example2">
         <thead>
             <tr>
                 <th scope="col" class="text-center">#</th>
@@ -41,8 +41,8 @@
                 <th scope="col">Kondisi</th>
                 <th scope="col">Jenis Konverter</th>
                 <th scope="col">IP Address</th>
-                <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th>
+              <!--   <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th> -->
                 <th scope="col">#</th>
                 <th scope="col" class="text-center">Action</th>
             </tr>
@@ -58,8 +58,8 @@
                     <td><?php echo $d['kondisi'] ?></td>
                     <td><?php echo $d['jenis_konverter'] ?></td>
                     <td><?php echo $d['ip'] ?></td>
-                    <td><?php echo $d['latitude'] ?></td>
-                    <td><?php echo $d['longitude'] ?></td>
+                    <!-- <td><?php echo $d['latitude'] ?></td>
+                    <td><?php echo $d['longitude'] ?></td> -->
                     <td class="text-center"><small><a href="" data-toggle="modal" data-target="#modal_edit<?php echo $d['id'];?>"> Show Details</a></small></td>
                     <td class="text-center">
                         <a href="<?php echo base_url() ?>data/delete/<?php echo $d['id'] ?>" class="badge badge-warning">edit</a>
@@ -74,7 +74,7 @@
 </div>
 </div>
 </div>
-</div>
+<!-- </div> -->
 <!-- End of Main Content -->
 
 <!-- Modal Add-->

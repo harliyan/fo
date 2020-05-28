@@ -9,8 +9,8 @@
   <title><?= $title; ?></title>
 
   <!-- icon -->
-  <link rel="shortcut icon" href="<?php print base_url(''); ?>/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="<?php print base_url(''); ?>/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php print base_url(''); ?>/favv.ico" type="image/x-icon">
+  <link rel="icon" href="<?php print base_url(''); ?>/favv.ico" type="image/x-icon">
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
