@@ -38,6 +38,16 @@ class Data_model extends CI_Model
 		return $query->result();
 	}
 
+	public function kecamatan_tampil() {
+		$query = $this->db->get('kecamatan');
+		return $query->result();
+	}
+
+	public function jointing_tampil() {
+		$query = $this->db->get('jointing');
+		return $query->result();
+	}
+
 	public function hapus($id)
 	{
 		$hasil = $this->db->query("DELETE FROM status_perangkat WHERE id_status='$id'");
@@ -49,10 +59,25 @@ class Data_model extends CI_Model
 		return $hsl;
 	}
 
+	public function edit_jointing($id,$jointing){
+		$hasil=$this->db->query("UPDATE jointing SET jointing='$jointing'WHERE id='$id'");
+		return $hsl;
+	}
+
 	public function hapuscluster($id)
 	{
 		$hasil = $this->db->query("DELETE FROM cluster WHERE id='$id'");
 		return $hasil;
+	}
+
+	public function hapusjointing($id)
+	{
+		$hasil = $this->db->query("DELETE FROM jointing WHERE id='$id'");
+		return $hasil;
+	}
+
+	public function input_data($data,$table){
+		$this->db->insert($table,$data);
 	}
 
 }

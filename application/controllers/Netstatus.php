@@ -10,13 +10,33 @@ class Netstatus extends CI_Controller
         $this->load->model('Home_model');
     }
 
-    public function index()
+    public function cluster()
     {
-        $data['title'] = 'CLUSTER';
+        $data['title'] = 'NETSTATUS / CLUSTER';
         $data['icon'] = '<i class="fas fa-fw fa-wrench"></i>';
         $data['desc'] = $this->db->get_where('desc')->row_array();
         $data['cluster']   = $this->Home_model->cluster();  
-        $data['active_view']    = "home/netstatus";
+        $data['active_view']    = "home/cluster";
+        $this->load->view('templates/frontend/index', $data);
+    }
+
+     public function jointing()
+    {
+        $data['title'] = 'NETSTATUS / JOINTING';
+        $data['icon'] = '<i class="fas fa-fw fa-layer-group"></i>';
+        $data['desc'] = $this->db->get_where('desc')->row_array();
+        $data['jointing']   = $this->Home_model->jointing();  
+        $data['active_view']    = "home/jointing";
+        $this->load->view('templates/frontend/index', $data);
+    }
+
+     public function location()
+    {
+        $data['title'] = 'NETSTATUS / LOCATION POINT';
+        $data['icon'] = '<i class="fas fa-location-arrow"></i>';
+        $data['desc'] = $this->db->get_where('desc')->row_array();
+        $data['location']   = $this->Home_model->location();  
+        $data['active_view']    = "home/location";
         $this->load->view('templates/frontend/index', $data);
     }
 

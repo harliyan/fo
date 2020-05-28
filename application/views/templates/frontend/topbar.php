@@ -16,7 +16,7 @@
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - User Information -->
-              <a href="auth" class="btn btn-success" data-target="#newMenuModal">Login</a>
+              <a href="<?php echo base_url('auth'); ?>" class="btn btn-success" data-target="#newMenuModal">Login</a>
 
           </ul>
 

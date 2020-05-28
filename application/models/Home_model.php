@@ -17,8 +17,6 @@
 			$this->db->select('data.*, data2.*');
 			$this->db->from('data');
 			$this->db->join('data2', 'data.id = data2.id');
-		// $where = "id_kecamatan='1'";
-		// $this->db->where($where);
 			return $this->db->get()->result();
 		}
 
@@ -158,6 +156,16 @@
 
 		public function cluster(){
 			$data = $this->db->query("SELECT * FROM cluster");
+			return $data->result_array();
+		}
+
+		public function jointing(){
+			$data = $this->db->query("SELECT * FROM jointing");
+			return $data->result_array();
+		}
+
+		public function location(){
+			$data = $this->db->query("SELECT data.opd, data2.latitude, data2.longitude from data INNER JOIN data2 ON data.id = data2.id");
 			return $data->result_array();
 		}
 

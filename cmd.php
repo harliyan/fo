@@ -15,6 +15,8 @@ if($httpcode>=200 && $httpcode<300){
 }
 ?>
 
+<br>
+
 <?php
 $url = 'https://telecenter.pekalongankota.go.id/';
 $ch = curl_init($url);
@@ -31,6 +33,8 @@ if($httpcode>=200 && $httpcode<300){
   echo "down";
 }
 ?>
+
+<br>
 
 <?php
 $url = 'https://siapkawal.pekalongankota.go.id/';
