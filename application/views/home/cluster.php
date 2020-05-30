@@ -51,6 +51,8 @@
 										<thead>
 											<tr>
 												<th scope="col">#</th>
+
+											
 												<th scope="col">Cluster</th>
 												<th scope="col">ClusterID</th>
 												<!-- <th scope="col">Action</th> -->
@@ -61,7 +63,8 @@
 											<?php foreach ($cluster as $c) : ?>
 												<tr>
 													<th scope="row"><?= $i; ?></th>
-													<td><?php echo $c['cluster'] ?></td>
+														<td scope="col"><a href="<?php echo site_url() ?>netstatus/clusterdetails/<?php echo $c['id'] ?>" style="color: #003d9e"><?php echo $c['cluster'] ?></td>
+													<!-- <td><?php echo $c['cluster'] ?></td> -->
 													<td><?php echo $c['id'] ?></td>
 												<!-- <td>
 													<a class="badge badge-warning" data-toggle="modal" data-target="#edit-data<?php echo $c['id'] ?>"> Edit</a>

@@ -180,4 +180,18 @@
 			return $hasil;
 		}
 
+		public function getDetails($table, $id)
+		{
+			$data = $this->db->query("SELECT * FROM data WHERE cluster='$id'");
+			return $data->result_array();
+		}
+
+		public function getcluster($table, $id)
+	{
+		$this->db->select('*');
+		$this->db->from($table);
+		$this->db->where('id', $id);
+		return $this->db->get()->result();
+	}
+
 	}
