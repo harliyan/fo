@@ -45,7 +45,7 @@
    <!--    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWcWBbOq-dZBEGsVT4HT9bOGwSFtpS5_c&token=79499"></script> -->
 
    <!-- API DEV -->
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnoX8LSgSg5-pRiF5_IzZ313VsNZzuo-4&callback=initMap"
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnoX8LSgSg5-pRiF5_IzZ313VsNZzuo-4"
    async defer></script>
 
    <script type="text/javascript">
@@ -135,8 +135,10 @@
 
   function createMarker(lt,lg,message) {
 
-    var up = 'http://192.168.254.247/project/baznas/up.png';
-    var down = 'http://192.168.254.247/project/baznas/down.png';
+    // var up = 'http://192.168.254.247/project/baznas/up.png';
+    // var down = 'http://192.168.254.247/project/baznas/down.png';
+    var up = 'http://telecenter.pekalongankota.go.id/project/baznas/up.png';
+    var down = 'http://telecenter.pekalongankota.go.id/project/baznas/down.png';
     var latLng = new google.maps.LatLng(lt,lg);
     var marker = new google.maps.Marker({
       position: latLng,

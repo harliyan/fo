@@ -1,37 +1,9 @@
+<!-- Begin Page Content -->
 <div class="container-fluid">
-
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-    <div class="row">
-        <div class="col-lg-6">
-            <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-            <?php if($this->session->flashdata('success')){ ?>  
-               <div class="alert alert-success">  
-                 <a href="#" class="close" data-dismiss="alert">&times;</a>  
-                 <strong>Success!</strong> <?php echo $this->session->flashdata('success'); ?>  
-             </div>  
-         <?php } else if($this->session->flashdata('error')){ ?>  
-           <div class="alert alert-danger">  
-             <a href="#" class="close" data-dismiss="alert">&times;</a>  
-             <strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>  
-         </div>  
-     <?php } else if($this->session->flashdata('warning')){ ?>  
-       <div class="alert alert-warning">  
-         <a href="#" class="close" data-dismiss="alert">&times;</a>  
-         <strong>Warning!</strong> <?php echo $this->session->flashdata('warning'); ?>  
-     </div>  
- <?php } else if($this->session->flashdata('info')){ ?>  
-   <div class="alert alert-info">  
-     <a href="#" class="close" data-dismiss="alert">&times;</a>  
-     <strong>Info!</strong> <?php echo $this->session->flashdata('info'); ?>  
- </div>  
-<?php } ?>  
-
-<!-- <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">Add Data Inventaris</a> -->
-
-<a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-danger mb-3"><i class="fas fa-redo-alt"></i>Refresh</a>
-<!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"> -->
-    <table class="table table-hover display" id="example2">
+    <!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"> -->
+        <table class="table table-hover display" id="example2">
         <thead>
             <tr>
                 <th scope="col" class="text-center">#</th>
@@ -59,35 +31,35 @@
                     <td><?php echo $d['jenis_konverter'] ?></td>
                     <td><?php echo $d['ip'] ?></td>
                     <!-- <td><?php echo $d['latitude'] ?></td>
-                    <td><?php echo $d['longitude'] ?></td> -->
-                    <td class="text-center"><small><a href="" data-toggle="modal" data-target="#modal_edit<?php echo $d['id'];?>"> Show Details</a></small></td>
-                    <td class="text-center">
-                        <a href="<?php echo base_url() ?>data/delete/<?php echo $d['id'] ?>" class="badge badge-warning">edit</a>
-                        <a href="<?php echo base_url() ?>data/hapusdata/<?php echo $d['id'] ?>" class="badge badge-danger">delete</a>
-                    </td>
-                </tr>
-                <?php $i++; ?>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+                        <td><?php echo $d['longitude'] ?></td> -->
+                        <td class="text-center"><small><a href="" data-toggle="modal" data-target="#modal_edit<?php echo $d['id'];?>"> Show Details</a></small></td>
+                        <td class="text-center">
+                            <a href="<?php echo base_url() ?>data/delete/<?php echo $d['id'] ?>" class="badge badge-warning">edit</a>
+                            <a href="<?php echo base_url() ?>data/hapusdata/<?php echo $d['id'] ?>" class="badge badge-danger">delete</a>
+                        </td>
+                    </tr>
+                    <?php $i++; ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     <br>
-</div>
+    <!-- /.container-fluid -->
+
 </div>
 </div>
 <!-- </div> -->
 <!-- End of Main Content -->
 
-<!-- Modal Add-->
 <div class="modal fade" id="newMenuModal" tabindex="-1" role="dialog" aria-labelledby="newMenuModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="newMenuModalLabel">Add Data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
-                 <span aria-hidden="true">&times;</span>                                                                                                     
-             </button>
-         </div>
-         <form action="<?= base_url('data/cluster') ?>" method="post">
+                   <span aria-hidden="true">&times;</span>                                                                                                     
+               </button>
+           </div>
+           <form action="<?= base_url('data/cluster') ?>" method="post">
             <div class="modal-body">
                 <div class="form-group">
                     <label>OPD</label>
@@ -148,9 +120,6 @@
 </div>
 </div>
 
-<!-- End Modal Add -->
-
-<!-- ============ MODAL EDIT BARANG =============== -->
 <?php foreach ($data as $d) :
     $id=$d['id'];
     $opd=$d['opd'];
@@ -274,7 +243,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- foto -->
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                               <div class="carousel-inner">
                                   <div class="carousel-item active">
@@ -299,10 +267,8 @@
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
-                        <!-- foto -->
                     </div>
                 </div>
             </div>
         </div>
     <?php endforeach;?>
-                <!--END MODAL ADD BARANG-->

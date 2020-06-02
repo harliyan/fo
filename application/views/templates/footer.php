@@ -69,6 +69,129 @@
  });
 </script>
 
+
+<script type="text/javascript">
+
+  function createMarker(lt,lg,message) {
+
+    // var up = 'http://192.168.254.247/project/baznas/up.png';
+    // var down = 'http://192.168.254.247/project/baznas/down.png';
+    var up = 'http://telecenter.pekalongankota.go.id/project/baznas/up.png';
+    var down = 'http://telecenter.pekalongankota.go.id/project/baznas/down.png';
+    var latLng = new google.maps.LatLng(lt,lg);
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: map,
+      icon: up
+
+    });
+
+
+    google.maps.event.addListener(marker, 'click', function() {
+      var myHtml = '<strong>'+message+'</strong>';
+      infoWindow.setContent(myHtml);
+      infoWindow.open(map, marker);
+    });
+  }
+
+</script>  
+
+
+<script>
+ $('.custom-file-input').on('change', function() {
+   let fileName = $(this).val().split('\\').pop();
+   $(this).next('.custom-file-label').addClass("selected").html(fileName);
+ });
+
+ $('.form-check-input').on('click', function() {
+   const menuId = $(this).data('menu');
+   const roleId = $(this).data('role');
+
+   $.ajax({
+     url: "<?= base_url('admin/changeaccess'); ?>",
+     type: 'post',
+     data: {
+       menuId: menuId,
+       roleId: roleId
+     },
+     success: function() {
+       document.location.href = "<?= base_url('admin/roleaccess/'); ?>" + roleId;
+     }
+   });
+
+ });
+</script>
+
+<!-- chart1 -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['UP',     <?php echo $get_up[0]->count; ?>],
+      ['DOWN',      <?php echo $get_down[0]->count; ?>]
+      ]);
+
+    var options = {
+      title: 'Data Statistik Kondisi FO'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+    chart.draw(data, options);
+  }
+</script>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['Barat',     <?php echo $get_barat_count[0]->count; ?>],
+      ['Utara',      <?php echo $get_utara_count[0]->count; ?>],
+      ['Timur',  <?php echo $get_timur_count[0]->count; ?>],
+      ['Selatan',    <?php echo $get_selatan_count[0]->count; ?>]
+      ]);
+
+    var options = {
+      title: 'Data Graph'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+  }
+</script>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['Konverter Single',     <?php echo $get_konverter_s[0]->count; ?>],
+      ['Konverter Double',      <?php echo $get_konverter_d[0]->count; ?>]
+      ]);
+
+    var options = {
+      title: 'Jenis Konverter'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+    chart.draw(data, options);
+  }
+</script>
+
 <script>
   $(function () {
     $('#example1').DataTable()

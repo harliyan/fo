@@ -12,12 +12,27 @@
             // }
             is_logged_in();
             $this->load->model('User_model');
+            $this->load->model('Home_model');
         }
 
         public function index()
         {
-            $data['title'] = 'Dashboard';
+            $data['title'] = 'Dashboard Admin';
             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+            $data['get_konverter_s']  = $this->Home_model->get_konverter_s();
+            $data['get_konverter_d']  = $this->Home_model->get_konverter_d();
+            $data['get_up']  = $this->Home_model->get_up();
+            $data['get_down']  = $this->Home_model->get_down();
+
+            $data['get_barat_count']  = $this->Home_model->get_barat_count();
+            $data['get_utara_count']  = $this->Home_model->get_utara_count();
+            $data['get_timur_count']  = $this->Home_model->get_timur_count();
+            $data['get_selatan_count']  = $this->Home_model->get_selatan_count();
+            $data['get_all_count']  = $this->Home_model->get_all_count();
+
+            $data['get_cluster_count']  = $this->Home_model->get_cluster_count();
+            $data['get_jointing_count']  = $this->Home_model->get_jointing_count();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -41,7 +56,7 @@
                 $this->load->view('admin/role', $data);
                 $this->load->view('templates/footer');
             } else {
-             $data = [
+               $data = [
                 'role' => $this->input->post('role'),
             ];
             $this->db->insert('user_role', $data);

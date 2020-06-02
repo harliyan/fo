@@ -123,6 +123,18 @@
 			return $data->result();
 		}
 
+		public function get_cluster_count() {
+			$sql = " SELECT count(*) as count from cluster" ;
+			$data = $this->db->query($sql);
+			return $data->result();
+		}
+
+		public function get_jointing_count() {
+			$sql = " SELECT count(*) as count from jointing" ;
+			$data = $this->db->query($sql);
+			return $data->result();
+		}
+
 		public function get_konverter_s() {
 			$sql = " SELECT count(*) as count from data where jenis_konverter = 'single' " ;
 			$data = $this->db->query($sql);
