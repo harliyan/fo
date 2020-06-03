@@ -7,7 +7,7 @@
     <!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"> -->
 
 
-
+<!-- 
      <?php foreach($data as $d2){ ?>
 
 
@@ -15,7 +15,7 @@
            <a class="navbar-brand" href="#pablo" style="color: #1d1124"><b>Image Name</b></a>
            <input type="text" class="form-control" name="image_name"  value="<?php echo $d2['opd'] ?>" readonly>
        </form>
-   <?php } ?>
+   <?php } ?> -->
    
 
    <table class="table table-hover display" id="example2">
