@@ -2,17 +2,33 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-danger mb-3"><i class="fas fa-redo-alt"></i> Refresh</a>
+    <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-warning mb-3"><i class="fas fa-redo-alt"></i> Update Data</a>
     <!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"> -->
-        <table class="table table-hover display" id="example2">
-        <thead>
-            <tr>
-                <th scope="col" class="text-center">#</th>
-                <th scope="col">Perangkat/OPD</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">Cluster</th>
-                <th scope="col">Kondisi</th>
-                <th scope="col">Jenis Konverter</th>
-                <th scope="col">IP Address</th>
+
+
+
+     <?php foreach($data as $d2){ ?>
+
+
+        <form class="form-horizontal" action="<?php echo site_url(). '/admin/input_foto/update'; ?>" role="form" method="post"> 
+           <a class="navbar-brand" href="#pablo" style="color: #1d1124"><b>Image Name</b></a>
+           <input type="text" class="form-control" name="image_name"  value="<?php echo $d2['opd'] ?>" readonly>
+       </form>
+   <?php } ?>
+   
+
+   <table class="table table-hover display" id="example2">
+    <thead>
+        <tr>
+            <th scope="col" class="text-center">#</th>
+            <th scope="col">Perangkat/OPD</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Cluster</th>
+            <th scope="col">Kondisi</th>
+            <th scope="col">Time</th>
+            <th scope="col">IP Address</th> 
+            <th scope="col">Jenis Konverter</th>
               <!--   <th scope="col">Latitude</th>
                 <th scope="col">Longitude</th> -->
                 <th scope="col">#</th>
@@ -27,9 +43,36 @@
                     <td><?php echo $d['opd'] ?></td>
                     <td><?php echo $d['alamat'] ?></td>
                     <td><?php echo $d['cluster'] ?></td>
-                    <td><?php echo $d['kondisi'] ?></td>
-                    <td><?php echo $d['jenis_konverter'] ?></td>
-                    <td><?php echo $d['ip'] ?></td>
+                    <td class="text-center tdcls">
+                        <?php
+                        $url = $d['ip'];
+                        $ch = curl_init($url);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $data = curl_exec($ch);
+                        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                        $httptime = curl_getinfo($ch, CURLINFO_TOTAL_TIME);
+                        curl_close($ch);
+                        if($httpcode>=200 && $httpcode<300){
+                            echo '<span class="badge badge-success">Up</span>';
+                        } else {
+                          echo '<span class="badge badge-danger">Down</span>';
+                      }
+                      ?>
+                  </td>
+                  <td>
+                    <?php
+                    $url = $d['ip'];
+                    $ch = curl_init($url);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $data = curl_exec($ch);
+                    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                    $httptime = curl_getinfo($ch, CURLINFO_TOTAL_TIME);
+                    curl_close($ch);
+                    echo $httptime;
+                    ?>
+                </td>
+                <td><?php echo $d['ip'] ?></td>
+                <td><?php echo $d['jenis_konverter'] ?></td>
                     <!-- <td><?php echo $d['latitude'] ?></td>
                         <td><?php echo $d['longitude'] ?></td> -->
                         <td class="text-center"><small><a href="" data-toggle="modal" data-target="#modal_edit<?php echo $d['id'];?>"> Show Details</a></small></td>
@@ -42,10 +85,10 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    <br>
-    <!-- /.container-fluid -->
+        <br>
+        <!-- /.container-fluid -->
 
-</div>
+    </div>
 </div>
 <!-- </div> -->
 <!-- End of Main Content -->
@@ -272,3 +315,4 @@
             </div>
         </div>
     <?php endforeach;?>
+
