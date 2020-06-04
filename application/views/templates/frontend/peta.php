@@ -42,7 +42,7 @@
    <script src="<?php print base_url('lightbox'); ?>/dist/js/lightbox.js"></script>
 
    <!-- api maps -->
-   <!--    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWcWBbOq-dZBEGsVT4HT9bOGwSFtpS5_c&token=79499"></script> -->
+    <!--   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWcWBbOq-dZBEGsVT4HT9bOGwSFtpS5_c&token=79499"></script> -->
 
    <!-- API DEV -->
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnoX8LSgSg5-pRiF5_IzZ313VsNZzuo-4"

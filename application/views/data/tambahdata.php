@@ -83,14 +83,14 @@
       <input type="text" class="form-control" id="ip" name="ip" aria-describedby="emailHelp" placeholder="Masukan IP Address">
     </div>
     <div class="form-group">
-      <strong><label for="jointing1">Jointing1</label></strong>
-      <select class="form-control" name="jointing1">
+      <strong><label for="jointing1">Jointing</label></strong>
+      <select class="form-control" name="jointing">
         <?php foreach($jointing as $j){ ?>
           <option value="<?php echo $j->id; ?>"><?php echo $j->jointing; ?></option>';
         <?php } ?>
       </select>
     </div>
-    <div class="form-group">
+   <!--  <div class="form-group">
       <strong><label for="jointing2">Jointing2</label></strong>
       <select class="form-control" name="jointing2">
         <?php foreach($jointing as $j){ ?>
@@ -105,10 +105,10 @@
           <option value="<?php echo $j->id; ?>"><?php echo $j->jointing; ?></option>';
         <?php } ?>
       </select>
-    </div>
+    </div> -->
     <div class="form-group">
       <strong><label>Latitude</label></strong>
-     <input type="text" class="form-control" id="latitude" name="latitude" aria-describedby="emailHelp" placeholder="Masukan Nama OPD" readonly>
+      <input type="text" class="form-control" id="latitude" name="latitude" aria-describedby="emailHelp" placeholder="Masukan Nama OPD" readonly>
     </div>
     <div class="form-group">
       <strong><label>Longitude</label></strong>
@@ -128,16 +128,19 @@
 </div>
 
 <!-- API DEV -->
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnoX8LSgSg5-pRiF5_IzZ313VsNZzuo-4"
-   async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnoX8LSgSg5-pRiF5_IzZ313VsNZzuo-4"
+async defer></script>
 
-   <script>
-    var map;
-    var markersArray = [];
-    var infoWindow;
-    getLocation();
+<!-- api maps -->
+<!--   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWcWBbOq-dZBEGsVT4HT9bOGwSFtpS5_c&token=79499"></script> -->
 
-    function initialize(position) {
+<script>
+  var map;
+  var markersArray = [];
+  var infoWindow;
+  getLocation();
+
+  function initialize(position) {
     /*
     if(position){
       var lat = -6.139898771218396;

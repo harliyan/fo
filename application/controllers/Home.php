@@ -29,6 +29,9 @@ class Home extends CI_Controller
         $data['get_selatan_count']  = $this->Home_model->get_selatan_count();
         $data['get_all_count']  = $this->Home_model->get_all_count();
 
+        $data['get_cluster_count']  = $this->Home_model->get_cluster_count();
+        $data['get_jointing_count']  = $this->Home_model->get_jointing_count();
+
         $data['active_view']    = "home/index";
         $this->load->view('templates/frontend/peta', $data);
 

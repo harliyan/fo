@@ -83,14 +83,14 @@
   <input type="text" class="form-control" id="ip" name="ip" aria-describedby="emailHelp" placeholder="Masukan IP Address">
 </div>
 <div class="form-group">
-  <strong><label for="jointing1">Jointing1</label></strong>
-  <select class="form-control" name="jointing1">
+  <strong><label for="jointing1">Jointing</label></strong>
+  <select class="form-control" name="jointing">
     <?php foreach($jointing as $j){ ?>
       <option value="<?php echo $j->id; ?>"><?php echo $j->jointing; ?></option>';
     <?php } ?>
   </select>
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
   <strong><label for="jointing2">Jointing2</label></strong>
   <select class="form-control" name="jointing2">
     <?php foreach($jointing as $j){ ?>
@@ -105,14 +105,14 @@
       <option value="<?php echo $j->id; ?>"><?php echo $j->jointing; ?></option>';
     <?php } ?>
   </select>
-</div>
+</div> -->
 <div class="form-group">
   <strong><label>Latitude</label></strong>
-  <input type="text" class="form-control" id="lat" name="latitude" aria-describedby="emailHelp" placeholder="Masukan Nama OPD" readonly>
+  <input type="text" class="form-control" id="lat" name="latitude" aria-describedby="emailHelp" placeholder="Latitude" readonly>
 </div>
 <div class="form-group">
   <strong><label>Longitude</label></strong>
-  <input type="text" class="form-control" id="lng" name="longitude" aria-describedby="emailHelp" placeholder="Masukan Nama OPD" readonly>
+  <input type="text" class="form-control" id="lng" name="longitude" aria-describedby="emailHelp" placeholder="Longitude" readonly>
 </div>
 <div>
   <div id="googleMap" style="width:100%;height:380px;"></div>

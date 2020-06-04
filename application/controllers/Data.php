@@ -16,7 +16,8 @@
         $data['title'] = 'Data Inventaris Fiber Optic';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->model('Data_model', 'data');
-        $data['data'] = $this->data->data();
+        // $data['data'] = $this->data->data();
+        $data['data'] = $this->Data_model->datainv();
         $data['data_cluster'] = $this->Data_model->cluster_tampil();
 
         $this->form_validation->set_rules('opd', 'Opd', 'required');
@@ -49,9 +50,9 @@
         $this->form_validation->set_rules('cluster', 'cluster', 'required');
         $this->form_validation->set_rules('kondisi', 'kondisi', 'required');
         $this->form_validation->set_rules('jenis_konverter', 'jenis_konverter', 'required');
-        $this->form_validation->set_rules('jointing1', 'jointing1', 'required');
-        $this->form_validation->set_rules('jointing2', 'jointing2', 'required');
-        $this->form_validation->set_rules('jointing3', 'jointing3', 'required');
+        $this->form_validation->set_rules('jointing', 'jointing', 'required');
+        // $this->form_validation->set_rules('jointing2', 'jointing2', 'required');
+        // $this->form_validation->set_rules('jointing3', 'jointing3', 'required');
         $this->form_validation->set_rules('ip', 'ip', 'required');
 
         $this->form_validation->set_rules('latitude', 'latitude', 'required');
@@ -75,9 +76,9 @@
             'kondisi' => $this->input->post('kondisi'),
             'jenis_konverter' => $this->input->post('jenis_konverter'),
             'cluster' => $this->input->post('cluster'),
-            'jointing1' => $this->input->post('jointing1'),
-            'jointing2' => $this->input->post('jointing2'),
-            'jointing3' => $this->input->post('jointing3'),
+            'jointing' => $this->input->post('jointing'),
+            // 'jointing2' => $this->input->post('jointing2'),
+            // 'jointing3' => $this->input->post('jointing3'),
             'ip' => $this->input->post('ip')
         ];
 
@@ -103,9 +104,7 @@
         $this->form_validation->set_rules('cluster', 'cluster', 'required');
         $this->form_validation->set_rules('kondisi', 'kondisi', 'required');
         $this->form_validation->set_rules('jenis_konverter', 'jenis_konverter', 'required');
-        $this->form_validation->set_rules('jointing1', 'jointing1', 'required');
-        $this->form_validation->set_rules('jointing2', 'jointing2', 'required');
-        $this->form_validation->set_rules('jointing3', 'jointing3', 'required');
+        $this->form_validation->set_rules('jointing', 'jointing', 'required');
         $this->form_validation->set_rules('ip', 'ip', 'required');
 
         $this->form_validation->set_rules('latitude', 'latitude', 'required');
@@ -129,9 +128,7 @@
             'kondisi' => $this->input->post('kondisi'),
             'jenis_konverter' => $this->input->post('jenis_konverter'),
             'cluster' => $this->input->post('cluster'),
-            'jointing1' => $this->input->post('jointing1'),
-            'jointing2' => $this->input->post('jointing2'),
-            'jointing3' => $this->input->post('jointing3'),
+            'jointing' => $this->input->post('jointing'),
             'ip' => $this->input->post('ip')
         ];
 

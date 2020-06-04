@@ -126,6 +126,7 @@
 
 <!-- chart1 -->
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart);
@@ -146,7 +147,9 @@
 
     chart.draw(data, options);
   }
+</script>
 
+<script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart);
 
@@ -168,7 +171,9 @@
 
     chart.draw(data, options);
   }
+</script>
 
+<script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart);
 
@@ -176,13 +181,13 @@
 
     var data = google.visualization.arrayToDataTable([
       ['Task', 'Hours per Day'],
-      ['Konverter Single', <?php echo $get_konverter_s[0]->count; ?>],
-      ['Konverter Double', <?php echo $get_konverter_d[0]->count; ?>]
+      ['Konverter Single',     <?php echo $get_konverter_s[0]->count; ?>],
+      ['Konverter Double',      <?php echo $get_konverter_d[0]->count; ?>]
       ]);
 
     var options = {
       title: 'Jenis Konverter'
-    };990000
+    };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
 

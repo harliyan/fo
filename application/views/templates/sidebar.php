@@ -13,46 +13,43 @@
     <hr class="sidebar-divider">
 
     <!-- Query Menu -->
-
     <?php
     $role_id = $this->session->userdata('role_id');
     $queryMenu = "SELECT `user_menu`.`id`, `menu`, `icons` FROM `user_menu` JOIN `user_access_menu` ON `user_menu`.`id` = `user_access_menu`.`menu_id` WHERE `user_access_menu`.`role_id` = $role_id
     ORDER BY `user_access_menu`.`menu_id` ASC
     ";
-
     $menu = $this->db->query($queryMenu)->result_array();
 
     ?>
-
 
     <?php foreach ($menu as $m) : ?>
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-toggle="collapse" data-target="#<?php echo $m['menu']; ?>" aria-expanded="true" aria-controls="collapseUtilities">
-            <span><i class="<?php echo $m['icons']; ?> mr-2"></i><?php echo $m['menu']; ?></span>
-        </a>
-        <?php
-        $menuId = $m['id'];
-        $querySubMenu = "SELECT * FROM `user_sub_menu` JOIN `user_menu` ON `user_sub_menu`.`menu_id` = `user_menu`. `id` WHERE `user_sub_menu`.`menu_id` = $menuId AND `user_sub_menu`.`is_active` = 1";
+                <span><i class="<?php echo $m['icons']; ?> mr-2"></i><?php echo $m['menu']; ?></span>
+            </a>
+            <?php
+            $menuId = $m['id'];
+            $querySubMenu = "SELECT * FROM `user_sub_menu` JOIN `user_menu` ON `user_sub_menu`.`menu_id` = `user_menu`. `id` WHERE `user_sub_menu`.`menu_id` = $menuId AND `user_sub_menu`.`is_active` = 1";
 
-        $subMenu = $this->db->query($querySubMenu)->result_array();   ?>
+            $subMenu = $this->db->query($querySubMenu)->result_array();   ?>
 
-        <hr class="sidebar-divider"> 
+            <hr class="sidebar-divider"> 
 
-        <div id="<?php echo $m['menu']; ?>" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <?php foreach ($subMenu as $sm) : ?>
-                  <a class="collapse-item" href="<?= base_url($sm['url']); ?>"><i class="<?= ($sm['icon']); ?>" style="margin-left: -15px"></i> <?= ($sm['title']); ?></a>
-              <?php endforeach; ?>
+            <div id="<?php echo $m['menu']; ?>" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <?php foreach ($subMenu as $sm) : ?>
+                      <a class="collapse-item" href="<?= base_url($sm['url']); ?>"><i class="<?= ($sm['icon']); ?>" style="margin-left: -15px"></i> <?= ($sm['title']); ?></a>
+                  <?php endforeach; ?>
 
+              </div>
           </div>
-      </div>
-  </li>
+      </li>
 
-<?php endforeach; ?> 
+  <?php endforeach; ?> 
 
-<!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
+  <!-- Nav Item - Pages Collapse Menu -->
+  <li class="nav-item">
     <a class="nav-link" href="<?= base_url('auth/logout') ?>">
         <i class="fas fa-fw fa-sign-out-alt"></i>
         <span>Logout</span></a>

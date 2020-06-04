@@ -105,7 +105,7 @@ class Report extends CI_Controller
         $this->pdf->Cell(6,0.8,'Perangkat/OPD','LTR',0,'C',0);
         $this->pdf->Cell(2,0.8,'Cluster','LTR',0,'C',0);
         $this->pdf->Cell(4,0.8,'Jenis Konverter','LTR',0,'C',0);
-        $this->pdf->Cell(4,0.8,'IP Adress','LTR',0,'C',0);
+        $this->pdf->Cell(5,0.8,'IP Adress','LTR',0,'C',0);
         $this->pdf->SetFont('Arial','',10);
 
         $report = $this->db->get('data')->result();
@@ -115,7 +115,7 @@ class Report extends CI_Controller
             $this->pdf->Cell(6,0.8, $row->opd,'LTR',0,'L',0);   
             $this->pdf->Cell(2,0.8, $row->cluster,'LTR',0,'C',0);   
             $this->pdf->Cell(4,0.8, $row->jenis_konverter,'LTR',0,'C',0);   
-            $this->pdf->Cell(4,0.8, $row->ip,'LTR',0,'C',0);   
+            $this->pdf->Cell(5,0.8, $row->ip,'LTR',0,'C',0);   
         }
         $this->pdf->Output();
     }
@@ -143,7 +143,7 @@ class Report extends CI_Controller
         $this->pdf->Cell(6,0.8,'Perangkat/OPD','LTR',0,'C',0);
         $this->pdf->Cell(2,0.8,'Cluster','LTR',0,'C',0);
         $this->pdf->Cell(4,0.8,'Jenis Konverter','LTR',0,'C',0);
-        $this->pdf->Cell(4,0.8,'IP Adress','LTR',0,'C',0);
+        $this->pdf->Cell(5,0.8,'IP Adress','LTR',0,'C',0);
         $this->pdf->SetFont('Arial','',10);
 
         $report = $this->db->get_where('data', array('id_kecamatan' => 1))->result();
@@ -154,7 +154,7 @@ class Report extends CI_Controller
             $this->pdf->Cell(6,0.8, $row->opd,'LTR',0,'L',0);   
             $this->pdf->Cell(2,0.8, $row->cluster,'LTR',0,'C',0);   
             $this->pdf->Cell(4,0.8, $row->jenis_konverter,'LTR',0,'C',0);   
-            $this->pdf->Cell(4,0.8, $row->ip,'LTR',0,'C',0);   
+            $this->pdf->Cell(5,0.8, $row->ip,'LTR',0,'C',0);   
         }
         $this->pdf->Output();
     }
@@ -221,7 +221,7 @@ class Report extends CI_Controller
         $this->pdf->Cell(6,0.8,'Perangkat/OPD','LTR',0,'C',0);
         $this->pdf->Cell(2,0.8,'Cluster','LTR',0,'C',0);
         $this->pdf->Cell(4,0.8,'Jenis Konverter','LTR',0,'C',0);
-        $this->pdf->Cell(4,0.8,'IP Adress','LTR',0,'C',0);
+        $this->pdf->Cell(5,0.8,'IP Adress','LTR',0,'C',0);
         $this->pdf->SetFont('Arial','',10);
 
         $report = $this->db->get_where('data', array('id_kecamatan' => 3))->result();
@@ -232,7 +232,7 @@ class Report extends CI_Controller
             $this->pdf->Cell(6,0.8, $row->opd,'LTR',0,'L',0);   
             $this->pdf->Cell(2,0.8, $row->cluster,'LTR',0,'C',0);   
             $this->pdf->Cell(4,0.8, $row->jenis_konverter,'LTR',0,'C',0);   
-            $this->pdf->Cell(4,0.8, $row->ip,'LTR',0,'C',0);   
+            $this->pdf->Cell(5,0.8, $row->ip,'LTR',0,'C',0);   
         }
         $this->pdf->Output();
     }
@@ -260,7 +260,7 @@ class Report extends CI_Controller
         $this->pdf->Cell(6,0.8,'Perangkat/OPD','LTR',0,'C',0);
         $this->pdf->Cell(2,0.8,'Cluster','LTR',0,'C',0);
         $this->pdf->Cell(4,0.8,'Jenis Konverter','LTR',0,'C',0);
-        $this->pdf->Cell(4,0.8,'IP Adress','LTR',0,'C',0);
+        $this->pdf->Cell(5,0.8,'IP Adress','LTR',0,'C',0);
         $this->pdf->SetFont('Arial','',10);
 
         $report = $this->db->get_where('data', array('id_kecamatan' => 4))->result();
@@ -271,7 +271,7 @@ class Report extends CI_Controller
             $this->pdf->Cell(6,0.8, $row->opd,'LTR',0,'L',0);   
             $this->pdf->Cell(2,0.8, $row->cluster,'LTR',0,'C',0);   
             $this->pdf->Cell(4,0.8, $row->jenis_konverter,'LTR',0,'C',0);   
-            $this->pdf->Cell(4,0.8, $row->ip,'LTR',0,'C',0);   
+            $this->pdf->Cell(5,0.8, $row->ip,'LTR',0,'C',0);   
         }
         $this->pdf->Output();
     }
