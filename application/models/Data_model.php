@@ -41,14 +41,18 @@ class Data_model extends CI_Model
 		$this->db->join ( 'cluster', 'cluster.id = data.cluster' , 'left' );
 		$this->db->join ( 'kecamatan', 'kecamatan.id_kecamatan = data.id_kecamatan' , 'left' );
 		$this->db->join ( 'jointing', 'jointing.id = data.jointing' , 'left' );
-		// $this->db->join ( 'jointing', 'jointing.id = data.jointing2' , 'left' );
-		// $this->db->join ( 'jointing', 'jointing.id = data.jointing3' , 'left' );
+		$this->db->join ( 'opd', 'opd.id = data.opd' , 'left' );
 		$query = $this->db->get ();
 		return $query->result_array ();
 	}
 
 	public function cluster_tampil() {
 		$query = $this->db->get('cluster');
+		return $query->result();
+	}
+
+	public function opd_tampil() {
+		$query = $this->db->get('opd');
 		return $query->result();
 	}
 
@@ -87,6 +91,12 @@ class Data_model extends CI_Model
 	public function hapusjointing($id)
 	{
 		$hasil = $this->db->query("DELETE FROM jointing WHERE id='$id'");
+		return $hasil;
+	}
+
+	public function hapusopd($id)
+	{
+		$hasil = $this->db->query("DELETE FROM opd WHERE id='$id'");
 		return $hasil;
 	}
 

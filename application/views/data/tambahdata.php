@@ -48,9 +48,18 @@
               <?php } ?>
             </select>
           </div>
-          <div class="form-group">
+         <!--  <div class="form-group">
             <strong><label>OPD</label></strong>
             <input type="text" class="form-control" id="opd" name="opd" aria-describedby="emailHelp" placeholder="Masukan Nama OPD">
+          </div> -->
+          <div class="form-group">
+            <strong><label for="opd">OPD</label></strong>
+            <br>
+              <select class="selectpicker"  data-live-search="true" name="opd">
+            <?php foreach($data_opd as $do){ ?>
+              <option value="<?php echo $do->id; ?>"><?php echo $do->opd; ?></option>';
+            <?php } ?>
+          </select>
           </div>
           <div class="form-group">
             <strong><label>Alamat</label></strong>

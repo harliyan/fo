@@ -9,6 +9,7 @@
 			$this->db->from ( 'data' );
 			$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
 			$this->db->join ( 'kecamatan', 'kecamatan.id_kecamatan = data.id_kecamatan' , 'left' );
+			$this->db->join ( 'opd', 'opd.id = data.opd' , 'left' );
 			$query = $this->db->get ();
 			return $query->result ();
 		}

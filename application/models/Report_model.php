@@ -19,6 +19,7 @@ class Report_model extends CI_Model
 		$this->db->from ( 'data' );
 		$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
 		$this->db->join ( 'cluster', 'cluster.id = data.cluster' , 'left' );
+		$this->db->join ( 'opd', 'opd.id = data.opd' , 'left' );
 		$query = $this->db->get ();
 		return $query->result_array ();
 	}
@@ -29,6 +30,7 @@ class Report_model extends CI_Model
 		$this->db->from ( 'data' );
 		$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
 		$this->db->join ( 'cluster', 'cluster.id = data.cluster' , 'left' );
+		$this->db->join ( 'opd', 'opd.id = data.opd' , 'left' );
 		$where = "id_kecamatan='1'";
 		$this->db->where($where);
 		$query = $this->db->get ();
@@ -41,6 +43,7 @@ class Report_model extends CI_Model
 		$this->db->from ( 'data' );
 		$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
 		$this->db->join ( 'cluster', 'cluster.id = data.cluster' , 'left' );
+		$this->db->join ( 'opd', 'opd.id = data.opd' , 'left' );
 		$where = "id_kecamatan='2'";
 		$this->db->where($where);
 		$query = $this->db->get ();
@@ -53,6 +56,7 @@ class Report_model extends CI_Model
 		$this->db->from ( 'data' );
 		$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
 		$this->db->join ( 'cluster', 'cluster.id = data.cluster' , 'left' );
+		$this->db->join ( 'opd', 'opd.id = data.opd' , 'left' );
 		$where = "id_kecamatan='3'";
 		$this->db->where($where);
 		$query = $this->db->get ();
@@ -65,6 +69,7 @@ class Report_model extends CI_Model
 		$this->db->from ( 'data' );
 		$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
 		$this->db->join ( 'cluster', 'cluster.id = data.cluster' , 'left' );
+		$this->db->join ( 'opd', 'opd.id = data.opd' , 'left' );
 		$where = "id_kecamatan='4'";
 		$this->db->where($where);
 		$query = $this->db->get ();
@@ -77,6 +82,7 @@ class Report_model extends CI_Model
 		$this->db->from ( 'data' );
 		$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
 		$this->db->join ( 'cluster', 'cluster.id = data.cluster' , 'left' );
+		$this->db->join ( 'opd', 'opd.id = data.opd' , 'left' );
 		$query = $this->db->get ();
 		return $query->result_array ();
 	}

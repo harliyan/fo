@@ -88,9 +88,7 @@
       ?>\
       <br>Cluster &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<?php echo $row->cluster ?>\
       <br>Konverter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<?php echo $row->jenis_konverter ?>\
-      <br>Jointing Utama :&nbsp;<?php echo $row->jointing1 ?>\
-      <br>Jointing 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<?php echo $row->jointing2 ?>\
-      <br>Jointing 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<?php echo $row->jointing3 ?>\
+      <br>Jointing Utama :&nbsp;<?php echo $row->jointing ?>\
       <br>IP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<?php echo $row->ip ?>\
       </div>\
       <br>\

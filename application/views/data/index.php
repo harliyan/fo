@@ -4,7 +4,7 @@
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
     <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-danger mb-3"><i class="fas fa-redo-alt"></i> Refresh</a>
     <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-warning mb-3"><i class="fas fa-redo-alt"></i> Update Data</a>
-       <table class="table table-hover display" id="example2">
+    <table class="table table-hover display" id="example2">
         <thead>
             <tr>
                 <th scope="col" class="text-center">#</th>
@@ -57,66 +57,74 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="newMenuModalLabel">Add Data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
-                   <span aria-hidden="true">&times;</span>                                                                                                     
-               </button>
-           </div>
-           <form action="<?= base_url('data/cluster') ?>" method="post">
+                 <span aria-hidden="true">&times;</span>                                                                                                     
+             </button>
+         </div>
+         <form action="<?= base_url('data/cluster') ?>" method="post">
             <div class="modal-body">
-                <div class="form-group">
+               <!--  <div class="form-group">
                     <label>OPD</label>
                     <input type="text" class="form-control" id="opd" name="opd" aria-describedby="emailHelp" placeholder="Masukan Nama OPD">
-                </div>
-                <div class="form-group">
+                </div> -->
+               <!--  <div class="form-group">
                     <label>Alamat</label>
                     <input type="text" class="form-control" id="alamat" name="alamat" aria-describedby="emailHelp" placeholder="Masukan Alamat OPD">
-                </div>
-                <div class="form-group">
-                    <label for="cluster">Cluster</label>
-                    <select class="form-control" name="cluster">
-                      <?php foreach($data_cluster as $dc){ ?>
-                        <option value="<?php echo $dc->cluster; ?>"><?php echo $dc->cluster; ?></option>';
+                </div> -->
+            <div class="form-group ">
+                    <label for="opd">OPD</label>
+                    <select class="form-control" name="opd">
+                      <?php foreach($data_opd as $do){ ?>
+                        <option value="<?php echo $do->opd; ?>"><?php echo $do->opd; ?></option>';
                     <?php } ?>
                 </select>
             </div>
             <div class="form-group">
-                <label for="kondisi">Kondisi</label>
-                <select class="form-control" name="kondisi">
-                    <option value="up">up</option>
-                    <option value="down">down</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Jenis Konverter</label>
-                <select class="form-control" name="kondisi">
-                    <option value="single">single</option>
-                    <option value="double">double</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>IP Address</label>
-                <input type="text" class="form-control" id="ip" name="ip" aria-describedby="emailHelp" placeholder="IP Address">
-            </div>
-            <div class="form-group">
-                <label>Jointing1</label>
-                <select class="form-control" name="kondisi">
-                    <option value="single">single</option>
-                    <option value="double">double</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Jointing2</label>
-                <input type="text" class="form-control" id="jointing2" name="jointing2" aria-describedby="emailHelp" placeholder="jointing2">
-            </div>
-            <div class="form-group">
-                <label>Jointing3</label>
-                <input type="text" class="form-control" id="jointing3" name="jointing3" aria-describedby="emailHelp" placeholder="jointing3">
-            </div>
+                <label for="cluster">Cluster</label>
+                <select class="form-control" name="cluster">
+                  <?php foreach($data_cluster as $dc){ ?>
+                    <option value="<?php echo $dc->cluster; ?>"><?php echo $dc->cluster; ?></option>';
+                <?php } ?>
+            </select>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add</button>
+        <div class="form-group">
+            <label for="kondisi">Kondisi</label>
+            <select class="form-control" name="kondisi">
+                <option value="up">up</option>
+                <option value="down">down</option>
+            </select>
         </div>
-    </form>
+        <div class="form-group">
+            <label>Jenis Konverter</label>
+            <select class="form-control" name="kondisi">
+                <option value="single">single</option>
+                <option value="double">double</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>IP Address</label>
+            <input type="text" class="form-control" id="ip" name="ip" aria-describedby="emailHelp" placeholder="IP Address">
+        </div>
+        <div class="form-group">
+            <label>Jointing1</label>
+            <select class="form-control" name="kondisi">
+                <option value="single">single</option>
+                <option value="double">double</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Jointing2</label>
+            <input type="text" class="form-control" id="jointing2" name="jointing2" aria-describedby="emailHelp" placeholder="jointing2">
+        </div>
+        <div class="form-group">
+            <label>Jointing3</label>
+            <input type="text" class="form-control" id="jointing3" name="jointing3" aria-describedby="emailHelp" placeholder="jointing3">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
 </div>
 </div>
 </div>

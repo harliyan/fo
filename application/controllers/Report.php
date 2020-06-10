@@ -108,7 +108,7 @@ class Report extends CI_Controller
         $this->pdf->Cell(5,0.8,'IP Adress','LTR',0,'C',0);
         $this->pdf->SetFont('Arial','',10);
 
-        $report = $this->db->get('data')->result();
+        $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id`")->result();
         foreach ($report as $row){
             $this->pdf->ln();
             $this->pdf->Cell(0.8,0.8, $row->id,'LTR',0,'C',0);   
@@ -147,7 +147,7 @@ class Report extends CI_Controller
         $this->pdf->SetFont('Arial','',10);
 
         $report = $this->db->get_where('data', array('id_kecamatan' => 1))->result();
-        // $report = $this->db->get('data')->result();
+        // $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id`")->result();
         foreach ($report as $row){
             $this->pdf->ln();
             $this->pdf->Cell(0.8,0.8, $row->id,'LTR',0,'C',0);   
@@ -224,7 +224,8 @@ class Report extends CI_Controller
         $this->pdf->Cell(5,0.8,'IP Adress','LTR',0,'C',0);
         $this->pdf->SetFont('Arial','',10);
 
-        $report = $this->db->get_where('data', array('id_kecamatan' => 3))->result();
+        // $report = $this->db->get_where('data', array('id_kecamatan' => 3))->result();
+        $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` ")->result();
         // $report = $this->db->get('data')->result();
         foreach ($report as $row){
             $this->pdf->ln();
@@ -256,14 +257,16 @@ class Report extends CI_Controller
         $this->pdf->ln(1);
         $this->pdf->SetFont('Arial','B',10);
 
-        $this->pdf->Cell(0.8,0.8,'NO','LTR',0,'C',0);   // empty cell with left,top, and right borders
+        $this->pdf->Cell(0.8,0.8,'NO','LTR',0,'C',0); 
         $this->pdf->Cell(6,0.8,'Perangkat/OPD','LTR',0,'C',0);
         $this->pdf->Cell(2,0.8,'Cluster','LTR',0,'C',0);
         $this->pdf->Cell(4,0.8,'Jenis Konverter','LTR',0,'C',0);
         $this->pdf->Cell(5,0.8,'IP Adress','LTR',0,'C',0);
         $this->pdf->SetFont('Arial','',10);
 
-        $report = $this->db->get_where('data', array('id_kecamatan' => 4))->result();
+        // $report = $this->db->get_where('data', array('id_kecamatan' => 4))->result();
+        $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` WHERE `opd`.`id_kecamatan` => 4")->result();
+        // $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` ")->result();
         // $report = $this->db->get('data')->result();
         foreach ($report as $row){
             $this->pdf->ln();
