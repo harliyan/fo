@@ -22,6 +22,9 @@
   <!-- lightbox -->
   <link href="<?php print base_url('lightbox'); ?>/dist/css/lightbox.css" rel="stylesheet">
 
+  <!-- Data table -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+
   <style type="text/css">
       /* Always set the map height explicitly to define the size of the div
       * element that contains the map. */

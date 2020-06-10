@@ -7,7 +7,7 @@
 	<!-- Main content -->
 	<section class="content">
 		<div class="row">
-			<div class="col-lg-8 col-md-12 col-sm-12">
+			<div class="col-lg-9 col-md-12 col-sm-12">
 				<!-- Custom Tabs -->
 				<div class="box-body">
 					<div class="card">
@@ -33,14 +33,15 @@
 										<?php endforeach ?>
 									</div> 
 
-									<table class="table table-bordered table-striped mb-4 mt-4">
+									<div class="table-wrapper-scroll-y my-custom-scrollbar">
+										<table class="table table-bordered table-striped mb-0" id="example2">
 										<thead>
 											<tr>
 												<th scope="col">#</th>
 												<th scope="col">OPD</th>
 												<th scope="col">IP</th>
 												<th scope="col">Kondisi</th>
-												<th scope="col">Time</th>
+												<th scope="col" class="text-center">Time</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -51,7 +52,7 @@
 													<td><?php echo $j['opd'] ?></td>
 													<td><?php echo $j['ip'] ?></td>
 													<td><?php echo $j['kondisi'] ?></td>
-													<td>...</td>
+													<td class="text-center"><?php echo $j['time'] ?></td>
 												</tr>
 												<?php $i++; ?>
 											<?php endforeach; ?>

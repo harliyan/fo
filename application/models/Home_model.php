@@ -177,11 +177,20 @@
 			return $data->result_array();
 		}
 
-		public function location(){
+		public function location2(){
 			$data = $this->db->query("SELECT data.opd, data2.latitude, data2.longitude from data INNER JOIN data2 ON data.id = data2.id");
 			return $data->result_array();
 		}
 
+		public function location()
+		{
+			$this->db->select ( '*' ); 
+			$this->db->from ( 'data' );
+			$this->db->join ( 'data2', 'data2.id = data.id' , 'left' );
+			$this->db->join ( 'opd', 'opd.id = data.opd' , 'left' );
+			$query = $this->db->get ();
+			return $query->result_array ();
+		}
 		public function edit_cluster($id,$cluster){
 			$hasil=$this->db->query("UPDATE cluster SET cluster='$cluster' WHERE id='$id'");
 			return $hsl;
@@ -200,11 +209,16 @@
 		}
 
 		public function getcluster($table, $id)
-	{
-		$this->db->select('*');
-		$this->db->from($table);
-		$this->db->where('id', $id);
-		return $this->db->get()->result();
-	}
+		{
+			$this->db->select('*');
+			$this->db->from($table);
+			$this->db->where('id', $id);
+			return $this->db->get()->result();
+		}
+
+		public function opd(){
+			$data = $this->db->query("SELECT * FROM opd");
+			return $data->result_array();
+		}
 
 	}

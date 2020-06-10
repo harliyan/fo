@@ -2,9 +2,9 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-    <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-danger mb-3"><i class="fas fa-redo-alt"></i>Refresh</a>
-    <!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"> -->
-        <table class="table table-hover display" id="example2">
+    <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-danger mb-3"><i class="fas fa-redo-alt"></i> Refresh</a>
+    <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-warning mb-3"><i class="fas fa-redo-alt"></i> Update Data</a>
+    <table class="table table-hover display" id="example2">
         <thead>
             <tr>
                 <th scope="col" class="text-center">#</th>
@@ -12,10 +12,9 @@
                 <th scope="col">Alamat</th>
                 <th scope="col">Cluster</th>
                 <th scope="col">Kondisi</th>
+                <th scope="col">Time</th>
+                <th scope="col">IP Address</th> 
                 <th scope="col">Jenis Konverter</th>
-                <th scope="col">IP Address</th>
-              <!--   <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th> -->
                 <th scope="col">#</th>
                 <th scope="col" class="text-center">Action</th>
             </tr>
@@ -29,10 +28,9 @@
                     <td><?php echo $d['alamat'] ?></td>
                     <td><?php echo $d['cluster'] ?></td>
                     <td><?php echo $d['kondisi'] ?></td>
-                    <td><?php echo $d['jenis_konverter'] ?></td>
+                    <td><?php echo $d['time'] ?></td>
                     <td><?php echo $d['ip'] ?></td>
-                    <!-- <td><?php echo $d['latitude'] ?></td>
-                        <td><?php echo $d['longitude'] ?></td> -->
+                    <td><?php echo $d['jenis_konverter'] ?></td>
                         <td class="text-center"><small><a href="" data-toggle="modal" data-target="#modal_edit<?php echo $d['id'];?>"> Show Details</a></small></td>
                         <td class="text-center">
                             <a href="<?php echo base_url() ?>data/delete/<?php echo $d['id'] ?>" class="badge badge-warning">edit</a>
@@ -43,80 +41,86 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    <br>
-    <!-- /.container-fluid -->
+        <br>
+        <!-- /.container-fluid -->
 
+    </div>
 </div>
-</div>
-<!-- </div> -->
 <!-- End of Main Content -->
-
 <div class="modal fade" id="newMenuModal" tabindex="-1" role="dialog" aria-labelledby="newMenuModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="newMenuModalLabel">Add Data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
-                   <span aria-hidden="true">&times;</span>                                                                                                     
-               </button>
-           </div>
-           <form action="<?= base_url('data/cluster') ?>" method="post">
+                 <span aria-hidden="true">&times;</span>                                                                                                     
+             </button>
+         </div>
+         <form action="<?= base_url('data/cluster') ?>" method="post">
             <div class="modal-body">
-                <div class="form-group">
+               <!--  <div class="form-group">
                     <label>OPD</label>
                     <input type="text" class="form-control" id="opd" name="opd" aria-describedby="emailHelp" placeholder="Masukan Nama OPD">
-                </div>
-                <div class="form-group">
+                </div> -->
+               <!--  <div class="form-group">
                     <label>Alamat</label>
                     <input type="text" class="form-control" id="alamat" name="alamat" aria-describedby="emailHelp" placeholder="Masukan Alamat OPD">
-                </div>
-                <div class="form-group">
-                    <label for="cluster">Cluster</label>
-                    <select class="form-control" name="cluster">
-                      <?php foreach($data_cluster as $dc){ ?>
-                        <option value="<?php echo $dc->cluster; ?>"><?php echo $dc->cluster; ?></option>';
+                </div> -->
+            <div class="form-group ">
+                    <label for="opd">OPD</label>
+                    <select class="form-control" name="opd">
+                      <?php foreach($data_opd as $do){ ?>
+                        <option value="<?php echo $do->opd; ?>"><?php echo $do->opd; ?></option>';
                     <?php } ?>
                 </select>
             </div>
             <div class="form-group">
-                <label for="kondisi">Kondisi</label>
-                <select class="form-control" name="kondisi">
-                    <option value="up">up</option>
-                    <option value="down">down</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Jenis Konverter</label>
-                <select class="form-control" name="kondisi">
-                    <option value="single">single</option>
-                    <option value="double">double</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>IP Address</label>
-                <input type="text" class="form-control" id="ip" name="ip" aria-describedby="emailHelp" placeholder="IP Address">
-            </div>
-            <div class="form-group">
-                <label>Jointing1</label>
-                <select class="form-control" name="kondisi">
-                    <option value="single">single</option>
-                    <option value="double">double</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Jointing2</label>
-                <input type="text" class="form-control" id="jointing2" name="jointing2" aria-describedby="emailHelp" placeholder="jointing2">
-            </div>
-            <div class="form-group">
-                <label>Jointing3</label>
-                <input type="text" class="form-control" id="jointing3" name="jointing3" aria-describedby="emailHelp" placeholder="jointing3">
-            </div>
+                <label for="cluster">Cluster</label>
+                <select class="form-control" name="cluster">
+                  <?php foreach($data_cluster as $dc){ ?>
+                    <option value="<?php echo $dc->cluster; ?>"><?php echo $dc->cluster; ?></option>';
+                <?php } ?>
+            </select>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add</button>
+        <div class="form-group">
+            <label for="kondisi">Kondisi</label>
+            <select class="form-control" name="kondisi">
+                <option value="up">up</option>
+                <option value="down">down</option>
+            </select>
         </div>
-    </form>
+        <div class="form-group">
+            <label>Jenis Konverter</label>
+            <select class="form-control" name="kondisi">
+                <option value="single">single</option>
+                <option value="double">double</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>IP Address</label>
+            <input type="text" class="form-control" id="ip" name="ip" aria-describedby="emailHelp" placeholder="IP Address">
+        </div>
+        <div class="form-group">
+            <label>Jointing1</label>
+            <select class="form-control" name="kondisi">
+                <option value="single">single</option>
+                <option value="double">double</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Jointing2</label>
+            <input type="text" class="form-control" id="jointing2" name="jointing2" aria-describedby="emailHelp" placeholder="jointing2">
+        </div>
+        <div class="form-group">
+            <label>Jointing3</label>
+            <input type="text" class="form-control" id="jointing3" name="jointing3" aria-describedby="emailHelp" placeholder="jointing3">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
 </div>
 </div>
 </div>
@@ -135,6 +139,16 @@
                     <div class="modal-body">
 
                         <div class="row">
+                            <div class="col-lg-3">
+                                <b><label class="control-label col-xs-3" >Kecamatan</label></b>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <b><label class="control-label col-xs-3" >: <?php echo $d['kecamatan'];?></label></b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: -20px">
                             <div class="col-lg-3">
                                 <label class="control-label col-xs-3" >Alamat</label>
                             </div>
@@ -196,31 +210,11 @@
                             </div>
                             <div class="row" style="margin-top: -20px">
                                 <div class="col-lg-3">
-                                    <label class="control-label col-xs-3" >Jointing 1</label>
+                                    <label class="control-label col-xs-3" >Jointing</label>
                                 </div>
                                 <div class="col-lg-9">
                                     <div class="form-group">
-                                        <label class="control-label col-xs-3" >: <?php echo $d['jointing1'];?></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: -20px">
-                                <div class="col-lg-3">
-                                    <label class="control-label col-xs-3" >Jointing 2</label>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3" >: <?php echo $d['jointing2'];?></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: -20px">
-                                <div class="col-lg-3">
-                                    <label class="control-label col-xs-3" >Jointing 3</label>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3" >: <?php echo $d['jointing3'];?></label>
+                                        <label class="control-label col-xs-3" >: <?php echo $d['jointing'];?></label>
                                     </div>
                                 </div>
                             </div>
@@ -273,3 +267,4 @@
             </div>
         </div>
     <?php endforeach;?>
+

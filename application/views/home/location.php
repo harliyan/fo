@@ -9,7 +9,7 @@
 
 	<section class="content">
 		<div class="row">
-			<div class="col-lg-9 col-md-12 col-sm-12">
+			<div class="col-lg-12 col-md-12 col-sm-12">
 				<!-- Custom Tabs -->
 				<div class="box-body">
 					<div class="card">
@@ -49,11 +49,12 @@
 								<?php } ?>  
 								<div>
 									<div class="table-wrapper-scroll-y my-custom-scrollbar">
-										<table class="table table-bordered table-striped mb-0">
+										<table class="table table-bordered table-striped mb-0"  id="example2">
 											<thead>
 												<tr>
 													<th scope="col">#</th>
 													<th scope="col">OPD</th>
+													<th scope="col">Alamat</th>
 													<th scope="col">Latitude</th>
 													<th scope="col">Longitude</th>
 													<th scope="col" class="text-center">Location</th>
@@ -65,6 +66,7 @@
 													<tr>
 														<th scope="row"><?= $i; ?></th>
 														<td><?php echo $l['opd'] ?></td>
+														<td><?php echo $l['alamat'] ?></td>
 														<td><?php echo $l['latitude'] ?></td>
 														<td><?php echo $l['longitude'] ?></td>
 														<td><center><a target="_blank" href="https://www.google.com/maps/dir//<?php echo $l['latitude'] ?>,<?php echo $l['longitude'] ?>"><i class="fas fa-location-arrow"></i></a></center></td>

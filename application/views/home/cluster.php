@@ -47,15 +47,12 @@
 									</div>  
 								<?php } ?>  
 								<div class="table-wrapper-scroll-y my-custom-scrollbar">
-									<table class="table table-bordered table-striped mb-0">
+										<table class="table table-bordered table-striped mb-0" id="example2">
 										<thead>
 											<tr>
 												<th scope="col">#</th>
-
-											
 												<th scope="col">Cluster</th>
 												<th scope="col">ClusterID</th>
-												<!-- <th scope="col">Action</th> -->
 											</tr>
 										</thead>
 										<tbody>
@@ -64,13 +61,7 @@
 												<tr>
 													<th scope="row"><?= $i; ?></th>
 														<td scope="col"><a href="<?php echo site_url() ?>netstatus/clusterdetails/<?php echo $c['id'] ?>" style="color: #003d9e"><?php echo $c['cluster'] ?></td>
-													<!-- <td><?php echo $c['cluster'] ?></td> -->
 													<td><?php echo $c['id'] ?></td>
-												<!-- <td>
-													<a class="badge badge-warning" data-toggle="modal" data-target="#edit-data<?php echo $c['id'] ?>"> Edit</a>
-													<a href="<?php echo base_url() ?>netstatus/delete_cluster/<?php echo $c['id'] ?>" class="badge badge-danger">delete</a>
-												</td> -->
-
 											</tr>
 											<?php $i++; ?>
 										<?php endforeach; ?>

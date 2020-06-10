@@ -69,6 +69,16 @@ public function location()
     $this->load->view('templates/frontend/index', $data);
 }
 
+public function opd()
+{
+    $data['title'] = 'OPD / PERANGKAT DAERAH';
+    $data['icon'] = '<i class="fa fa-address-book-o"></i>';
+    $data['desc'] = $this->db->get_where('desc')->row_array();
+    $data['opd']   = $this->Home_model->opd();  
+    $data['active_view']    = "home/opd";
+    $this->load->view('templates/frontend/index', $data);
+}
+
 public function edit_cluster(){
     $id=$this->input->post('id');
     $cluster=$this->input->post('cluster');

@@ -46,7 +46,7 @@
 									</div>  
 								<?php } ?>  
 								<div class="table-wrapper-scroll-y my-custom-scrollbar">
-									<table class="table table-bordered table-striped mb-0">
+										<table class="table table-bordered table-striped mb-0"  id="example2">
 										<thead>
 											<tr>
 												<th scope="col">#</th>

@@ -38,6 +38,7 @@
           <h6 class="collapse-header">Net Status:</h6>
           <a class="collapse-item" href="<?php echo base_url('netstatus/cluster'); ?>">Cluster</a>
           <a class="collapse-item" href="<?php echo base_url('netstatus/jointing'); ?>">Jointing</a>
+          <a class="collapse-item" href="<?php echo base_url('netstatus/opd'); ?>">OPD</a>
           <a class="collapse-item" href="<?php echo base_url('netstatus/location'); ?>">Location</a>
         </div>
       </div>
