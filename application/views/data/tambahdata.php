@@ -55,19 +55,15 @@
           <div class="form-group">
             <strong><label for="opd">OPD</label></strong>
             <br>
-              <select class="selectpicker"  data-live-search="true" name="opd">
-            <?php foreach($data_opd as $do){ ?>
-              <option value="<?php echo $do->id; ?>"><?php echo $do->opd; ?></option>';
-            <?php } ?>
-          </select>
-          </div>
-          <div class="form-group">
-            <strong><label>Alamat</label></strong>
-            <input type="text" class="form-control" id="alamat" name="alamat" aria-describedby="emailHelp" placeholder="Masukan Alamat OPD">
+            <select class="form-control selectpicker"  data-live-search="true" name="opd">
+              <?php foreach($data_opd as $do){ ?>
+                <option value="<?php echo $do->id; ?>"><?php echo $do->opd; ?></option>';
+              <?php } ?>
+            </select>
           </div>
           <div class="form-group">
            <strong><label for="cluster">Cluster</label></strong>
-           <select class="form-control" name="cluster">
+           <select class="selectpicker form-control"  data-live-search="true" name="cluster">
             <?php foreach($data_cluster as $dc){ ?>
               <option value="<?php echo $dc->id; ?>"><?php echo $dc->cluster; ?></option>';
             <?php } ?>
@@ -93,7 +89,7 @@
     </div>
     <div class="form-group">
       <strong><label for="jointing1">Jointing</label></strong>
-      <select class="form-control" name="jointing">
+      <select class="selectpicker form-control"  data-live-search="true" name="jointing">
         <?php foreach($jointing as $j){ ?>
           <option value="<?php echo $j->id; ?>"><?php echo $j->jointing; ?></option>';
         <?php } ?>

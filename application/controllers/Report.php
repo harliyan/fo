@@ -146,7 +146,7 @@ class Report extends CI_Controller
         $this->pdf->Cell(5,0.8,'IP Adress','LTR',0,'C',0);
         $this->pdf->SetFont('Arial','',10);
 
-        $report = $this->db->get_where('data', array('id_kecamatan' => 1))->result();
+        $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` WHERE `data`. `id_kecamatan` = '1' ")->result();
         // $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id`")->result();
         foreach ($report as $row){
             $this->pdf->ln();
@@ -185,7 +185,7 @@ class Report extends CI_Controller
         $this->pdf->Cell(4,0.8,'IP Adress','LTR',0,'C',0);
         $this->pdf->SetFont('Arial','',10);
 
-        $report = $this->db->get_where('data', array('id_kecamatan' => 2))->result();
+       $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` WHERE `data`. `id_kecamatan` = '2' ")->result();
         // $report = $this->db->get('data')->result();
         foreach ($report as $row){
             $this->pdf->ln();
@@ -225,7 +225,7 @@ class Report extends CI_Controller
         $this->pdf->SetFont('Arial','',10);
 
         // $report = $this->db->get_where('data', array('id_kecamatan' => 3))->result();
-        $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` ")->result();
+         $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` WHERE `data`. `id_kecamatan` = '3' ")->result();
         // $report = $this->db->get('data')->result();
         foreach ($report as $row){
             $this->pdf->ln();
@@ -265,8 +265,7 @@ class Report extends CI_Controller
         $this->pdf->SetFont('Arial','',10);
 
         // $report = $this->db->get_where('data', array('id_kecamatan' => 4))->result();
-        $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` WHERE `opd`.`id_kecamatan` => 4")->result();
-        // $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` ")->result();
+       $report = $this->db->query("SELECT `data` .*, `opd`.* FROM `data` JOIN `opd` ON `data`. `opd` = `opd`.`id` WHERE `data`. `id_kecamatan` = '4' ")->result();
         // $report = $this->db->get('data')->result();
         foreach ($report as $row){
             $this->pdf->ln();

@@ -15,7 +15,7 @@
                                 </div>
                                 <?php echo form_error('name', '<p class="text-danger pl-3">', ' </p>'); ?>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="email" placeholder="Email Address" name="email" value="<?php echo set_value('email') ?>">
+                                    <input type="text" class="form-control form-control-user" id="email" placeholder="Username" name="email" value="<?php echo set_value('email') ?>">
                                 </div>
                                 <?php echo form_error('email', '<p class="text-danger pl-3">', ' </p>'); ?>
                                 <div class="form-group row">

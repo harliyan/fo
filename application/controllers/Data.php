@@ -47,7 +47,7 @@
 
         $this->form_validation->set_rules('id_kecamatan', 'id_kecamatan', 'required');
         $this->form_validation->set_rules('opd', 'opd', 'required');
-        $this->form_validation->set_rules('alamat', 'alamat', 'required');
+        // $this->form_validation->set_rules('alamat', 'alamat', 'required');
         $this->form_validation->set_rules('cluster', 'cluster', 'required');
         $this->form_validation->set_rules('kondisi', 'kondisi', 'required');
         $this->form_validation->set_rules('jenis_konverter', 'jenis_konverter', 'required');
@@ -74,7 +74,7 @@
            $data = [
             'id_kecamatan' => $this->input->post('id_kecamatan'),
             'opd' => $this->input->post('opd'),
-            'alamat' => $this->input->post('alamat'),
+            // 'alamat' => $this->input->post('alamat'),
             'kondisi' => $this->input->post('kondisi'),
             'jenis_konverter' => $this->input->post('jenis_konverter'),
             'cluster' => $this->input->post('cluster'),
@@ -102,7 +102,6 @@ public function tambahmanual()
 
     $this->form_validation->set_rules('id_kecamatan', 'id_kecamatan', 'required');
     $this->form_validation->set_rules('opd', 'opd', 'required');
-    $this->form_validation->set_rules('alamat', 'alamat', 'required');
     $this->form_validation->set_rules('cluster', 'cluster', 'required');
     $this->form_validation->set_rules('kondisi', 'kondisi', 'required');
     $this->form_validation->set_rules('jenis_konverter', 'jenis_konverter', 'required');
@@ -127,7 +126,6 @@ public function tambahmanual()
        $data = [
         'id_kecamatan' => $this->input->post('id_kecamatan'),
         'opd' => $this->input->post('opd'),
-        'alamat' => $this->input->post('alamat'),
         'kondisi' => $this->input->post('kondisi'),
         'jenis_konverter' => $this->input->post('jenis_konverter'),
         'cluster' => $this->input->post('cluster'),
