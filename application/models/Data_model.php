@@ -99,6 +99,19 @@ class Data_model extends CI_Model
 		return $hasil;
 	}
 
+	public function hapusdata2($id)
+	{
+		$hasil = $this->db->query("DELETE FROM data WHERE id='$id'");
+		$hasil = $this->db->query("DELETE FROM data2 WHERE id='$id'");
+		return $hasil;
+	}
+
+	public function hapusdata($id)
+	{
+		$this->db->delete('data', array('id' => $id)); 
+		$this->db->delete('data2', array('id' => $id));
+	}
+
 	public function hapusjointing($id)
 	{
 		$hasil = $this->db->query("DELETE FROM jointing WHERE id='$id'");

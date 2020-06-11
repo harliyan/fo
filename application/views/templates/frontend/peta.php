@@ -62,7 +62,9 @@
         zoom: 13, //zoom
         scrollwheel: true, //bisa discroll nggak
         draggable:true, //bisa didrag nggak
+        // maxWidth: 200,
         mapTypeId: google.maps.MapTypeId.ROADMAP  //jenis peta
+
 
       });
 
@@ -71,8 +73,7 @@
 
       <?php foreach ($view AS $row) {?>
        var nama = '\
-       <div class="row">\
-       <div class="col col-lg-6 col-sm-12">\
+       <div class="col col-lg-12 col-sm-12">\
        <b><h3 align="left"><?php echo $row->opd?></h3></b>\
        <p align="left"><?php echo $row->alamat?> (<?php echo $row->kecamatan ?>)</p>\
        <hr>\
@@ -92,9 +93,6 @@
       <br>Konverter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<?php echo $row->jenis_konverter ?>\
       <br>Jointing Utama :&nbsp;<?php echo $row->jointing ?>\
       <br>IP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<?php echo $row->ip ?>\
-      </div>\
-      <br>\
-      <div class="col col-lg-6 col-sm-12">\
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">\
       <div class="carousel-inner">\
       <div class="carousel-item active">\

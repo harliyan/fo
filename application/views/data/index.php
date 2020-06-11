@@ -3,72 +3,96 @@
     <section class="content">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <!-- Custom Tabs -->
-                <div class="box-body">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <!-- Page Heading -->
-                                <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-                                <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-danger mb-3"><i class="fas fa-redo-alt"></i> Refresh</a>
-                                <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-warning mb-3"><i class="fas fa-redo-alt"></i> Update Data</a>
-                                <table class="table table-hover display table-responsive" id="example2">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" class="text-center">#</th>
-                                            <th scope="col">Perangkat/OPD</th>
-                                            <th scope="col">Alamat</th>
-                                            <th scope="col">Cluster</th>
-                                            <th scope="col">Kondisi</th>
-                                            <th scope="col">Time</th>
-                                            <th scope="col">IP Address</th> 
-                                            <th scope="col">Jenis Konverter</th>
-                                            <th scope="col">#</th>
-                                            <th scope="col" class="text-center">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $i = 1; ?>
-                                        <?php foreach ($data as $d) : ?>
-                                            <tr>
-                                                <th scope="row" class="text-center"><?= $i; ?></th>
-                                                <td><?php echo $d['opd'] ?></td>
-                                                <td><?php echo $d['alamat'] ?></td>
-                                                <td><?php echo $d['cluster'] ?></td>
-                                                <td><?php echo $d['kondisi'] ?></td>
-                                                <td><?php echo $d['time'] ?></td>
-                                                <td><?php echo $d['ip'] ?></td>
-                                                <td><?php echo $d['jenis_konverter'] ?></td>
-                                                <td class="text-center"><small><a href="" data-toggle="modal" data-target="#modal_edit<?php echo $d['id'];?>"> Show Details</a></small></td>
-                                                <td class="text-center">
-                                                    <a href="<?php echo base_url() ?>data/editdata/<?php echo $d['id'] ?>" class="badge badge-warning">edit</a>
-                                                    <a href="<?php echo base_url() ?>data/hapusdata/<?php echo $d['id'] ?>" class="badge badge-danger">delete</a>
-                                                </td>
-                                            </tr>
-                                            <?php $i++; ?>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            <!-- End of Main Content -->
+               <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+
+               <?php if($this->session->flashdata('success')){ ?>  
+                 <div class="alert alert-success">  
+                   <a href="#" class="close" data-dismiss="alert">&times;</a>  
+                   <strong>Success!</strong> <?php echo $this->session->flashdata('success'); ?>  
+               </div>  
+           <?php } else if($this->session->flashdata('error')){ ?>  
+             <div class="alert alert-danger">  
+               <a href="#" class="close" data-dismiss="alert">&times;</a>  
+               <strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>  
+           </div>  
+       <?php } else if($this->session->flashdata('warning')){ ?>  
+         <div class="alert alert-warning">  
+           <a href="#" class="close" data-dismiss="alert">&times;</a>  
+           <strong>Warning!</strong> <?php echo $this->session->flashdata('warning'); ?>  
+       </div>  
+   <?php } else if($this->session->flashdata('info')){ ?>  
+     <div class="alert alert-info">  
+       <a href="#" class="close" data-dismiss="alert">&times;</a>  
+       <strong>Info!</strong> <?php echo $this->session->flashdata('info'); ?>  
+   </div>  
+<?php } ?>  
+<!-- Custom Tabs -->
+<div class="box-body">
+    <div class="card">
+        <div class="card-body">
+            <div class="tab-content">
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+                <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-danger mb-3"><i class="fas fa-redo-alt"></i> Refresh</a>
+                <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-warning mb-3"><i class="fas fa-redo-alt"></i> Update Data</a>
+                <table class="table table-hover display table-responsive" id="example2">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">#</th>
+                            <th scope="col">Perangkat/OPD</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">Cluster</th>
+                            <th scope="col">Kondisi</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">IP Address</th> 
+                            <th scope="col">Jenis Konverter</th>
+                            <th scope="col">#</th>
+                            <th scope="col" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($data as $d) : ?>
+                            <tr>
+                                <th scope="row" class="text-center"><?= $i; ?></th>
+                                <td><?php echo $d['opd'] ?></td>
+                                <td><?php echo $d['alamat'] ?></td>
+                                <td><?php echo $d['cluster'] ?></td>
+                                <td><?php echo $d['kondisi'] ?></td>
+                                <td><?php echo $d['time'] ?></td>
+                                <td><?php echo $d['ip'] ?></td>
+                                <td><?php echo $d['jenis_konverter'] ?></td>
+                                <td class="text-center"><small><a href="" data-toggle="modal" data-target="#modal_edit<?php echo $d['id'];?>"> Show Details</a></small></td>
+                                <td class="text-center">
+                                    <a href="<?php echo base_url() ?>data/editdata/<?php echo $d['id'] ?>" class="badge badge-warning">edit</a>
+                                    <a href="<?php echo base_url() ?>data/hapusdata/<?php echo $d['id'] ?>" class="badge badge-danger">delete</a>
+
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Main Content -->
 
 
 
-                            
-        <div class="modal fade" id="newMenuModal" tabindex="-1" role="dialog" aria-labelledby="newMenuModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="newMenuModalLabel">Add Data</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
-                         <span aria-hidden="true">&times;</span>                                                                                                     
-                     </button>
-                 </div>
-                 <form action="<?= base_url('data/cluster') ?>" method="post">
-                    <div class="modal-body">
+
+<div class="modal fade" id="newMenuModal" tabindex="-1" role="dialog" aria-labelledby="newMenuModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newMenuModalLabel">Add Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                   <span aria-hidden="true">&times;</span>                                                                                                     
+               </button>
+           </div>
+           <form action="<?= base_url('data/cluster') ?>" method="post">
+            <div class="modal-body">
                <!--  <div class="form-group">
                     <label>OPD</label>
                     <input type="text" class="form-control" id="opd" name="opd" aria-describedby="emailHelp" placeholder="Masukan Nama OPD">

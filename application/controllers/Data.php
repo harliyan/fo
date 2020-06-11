@@ -295,8 +295,8 @@ $this->session->set_flashdata('success', 'Data Status Berhasil dihapus');
 
 public function hapusdata($id)
 {
-    $this->Data_model->hapuscluster($id);
-    $this->session->set_flashdata('success', 'Data Cluster Berhasil dihapus');
+    $this->Data_model->hapusdata($id);
+    $this->session->set_flashdata('success', 'Data Berhasil dihapus');
     redirect('data'); //redirect
 }
 
