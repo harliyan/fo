@@ -82,6 +82,17 @@ class Data_model extends CI_Model
 		return $hsl;
 	}
 
+	public function edit_status($id_status,$status){
+		$hasil=$this->db->query("UPDATE status_perangkat SET status='$status'WHERE id_status='$id_status'");
+		return $hsl;
+	}
+
+	public function edit_opd($id,$opd,$opd_nama,$alamat,$email,$kontak){
+		$hasil=$this->db->query("UPDATE opd 
+			SET opd='$opd', opd_nama='$opd_nama', alamat='$alamat', email='$email', kontak='$kontak' WHERE id='$id'");
+		return $hsl;
+	}
+
 	public function hapuscluster($id)
 	{
 		$hasil = $this->db->query("DELETE FROM cluster WHERE id='$id'");

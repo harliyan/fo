@@ -12,7 +12,7 @@
                                 <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
                                 <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-danger mb-3"><i class="fas fa-redo-alt"></i> Refresh</a>
                                 <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-warning mb-3"><i class="fas fa-redo-alt"></i> Update Data</a>
-                                <table class="table table-hover display  table-responsive" id="example2">
+                                <table class="table table-hover display table-responsive" id="example2">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="text-center">#</th>
@@ -41,7 +41,7 @@
                                                 <td><?php echo $d['jenis_konverter'] ?></td>
                                                 <td class="text-center"><small><a href="" data-toggle="modal" data-target="#modal_edit<?php echo $d['id'];?>"> Show Details</a></small></td>
                                                 <td class="text-center">
-                                                    <a href="<?php echo base_url() ?>data/delete/<?php echo $d['id'] ?>" class="badge badge-warning">edit</a>
+                                                    <a href="<?php echo base_url() ?>data/editdata/<?php echo $d['id'] ?>" class="badge badge-warning">edit</a>
                                                     <a href="<?php echo base_url() ?>data/hapusdata/<?php echo $d['id'] ?>" class="badge badge-danger">delete</a>
                                                 </td>
                                             </tr>

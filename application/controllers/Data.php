@@ -254,14 +254,36 @@ public function edit_cluster(){
     $id=$this->input->post('id');
     $cluster=$this->input->post('cluster');
     $this->Data_model->edit_cluster($id,$cluster);
+    $this->session->set_flashdata('success', 'Data Berhasil diedit');
     redirect('data/cluster');
 }
 
 public function edit_jointing(){
     $id=$this->input->post('id');
     $jointing=$this->input->post('jointing');
-    $this->Data_model->edit_jointing($id, $jointing);
+    $this->Data_model->edit_jointing($id,$jointing);
+    $this->session->set_flashdata('success', 'Data Berhasil diedit');
     redirect('data/jointing');
+}
+
+public function edit_status(){
+    $id_status=$this->input->post('id_status');
+    $status=$this->input->post('status');
+    $this->Data_model->edit_status($id_status,$status);
+    $this->session->set_flashdata('success', 'Data Berhasil diedit');
+    redirect('data/inputstatus');
+}
+
+public function edit_opd(){
+    $id=$this->input->post('id');
+    $opd=$this->input->post('opd');
+    $opd_nama=$this->input->post('opd_nama');
+    $alamat=$this->input->post('alamat');
+    $email=$this->input->post('email');
+    $kontak=$this->input->post('kontak');
+    $this->Data_model->edit_opd($id,$opd,$opd_nama, $alamat, $email, $kontak);
+    $this->session->set_flashdata('success', 'Data Berhasil diedit');
+    redirect('data/opd');
 }
 
 public function hapus($id)

@@ -33,7 +33,7 @@
 
 <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">Add Jointing Point</a>
 
-<table class="table table-hover display" id="example1">
+<table class="table table-hover display table-responsive" id="example1">
     <thead>
         <tr>
             <th scope="col" class="text-center">#</th>
@@ -98,20 +98,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="myModalLabel">Edit Cluster</h3>
+                    <h3 class="modal-title" id="myModalLabel">Edit Jointing</h3>
                 </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url().'data/edit_jointing'?>">
+                <form class="form-horizontal" method="post" action="<?= base_url('data/edit_jointing') ?>">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label class="control-label col-xs-3" >ID</label>
                             <div class="col-xs-8">
-                                <input name="kode_barang" value="<?php echo $j['id'] ?>" class="form-control" type="text" placeholder="Kode Barang..." readonly>
+                                <input name="id" value="<?php echo $j['id'] ?>" class="form-control" type="text" placeholder="id" hidden>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-xs-3" >Cluster</label>
+                            <label class="control-label col-xs-3" >Jointing</label>
                             <div class="col-xs-8">
-                                <input name="cluster" value="<?php echo $j['jointing'] ?>" class="form-control" type="text" placeholder="Cluster" required>
+                                <input name="jointing" value="<?php echo $j['jointing'] ?>" class="form-control" type="text" placeholder="jointing" required>
                             </div>
                         </div>
                         <div class="modal-footer">

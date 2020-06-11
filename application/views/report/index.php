@@ -4,7 +4,7 @@
 	<h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 	<a href="<?= base_url('report/') .$download; ?>" target="_blank" class="btn btn-danger mb-3"><i class="fas fa-cloud-download-alt"></i> Download PDF</a>
 	<!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"> -->
-		<table class="table table-hover display" id="example2">
+		<table class="table table-hover display table-responsive  w-100 d-block d-md-table" id="example2">
 			<thead>
 				<tr>
 					<th scope="col" class="text-center">#</th>
